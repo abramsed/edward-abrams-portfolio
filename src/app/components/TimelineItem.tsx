@@ -2,7 +2,7 @@ import { Experience } from "@/data/resume";
 
 export default function TimelineItem({
   title,
-  company,
+  product,
   period,
   bullets,
 }: Experience) {
@@ -13,7 +13,7 @@ export default function TimelineItem({
 
       <p className="text-sm font-medium text-emerald-400">{period}</p>
       <h3 className="mt-1 text-xl font-bold text-white">{title}</h3>
-      <p className="text-sm text-neutral-500">{company}</p>
+      <p className="text-sm text-neutral-500">{product}</p>
 
       <ul className="mt-4 space-y-2">
         {bullets.map((b, i) => (

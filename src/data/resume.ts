@@ -10,7 +10,7 @@ export const personalInfo = {
 
 export interface Experience {
   title: string;
-  company: string;
+  product: string;
   period: string;
   bullets: string[];
 }
@@ -18,7 +18,7 @@ export interface Experience {
 export const experiences: Experience[] = [
   {
     title: "Software Developer III",
-    company: "United Wholesale Mortgage",
+    product: "Brand 360",
     period: "July 2024 – Present",
     bullets: [
       "Lead frontend development for a CRM and content creation platform built on React with a Next.js server layer",
@@ -28,7 +28,7 @@ export const experiences: Experience[] = [
   },
   {
     title: "Team Leader, Product Development",
-    company: "United Wholesale Mortgage",
+    product: "UWM Portal",
     period: "June 2023 – July 2024",
     bullets: [
       "Launched the company's first public-facing APIs, opening the platform to external partners and expanding its ecosystem reach",
@@ -38,7 +38,7 @@ export const experiences: Experience[] = [
   },
   {
     title: "Software Developer II",
-    company: "United Wholesale Mortgage",
+    product: "Edge",
     period: "Sept 2021 – June 2023",
     bullets: [
       "Designed the organization's first polymorphic NoSQL model with a flexible, schema-agnostic structure",
@@ -48,7 +48,7 @@ export const experiences: Experience[] = [
   },
   {
     title: "Trainee → Software Developer I",
-    company: "United Wholesale Mortgage",
+    product: "Bolt",
     period: "Sept 2019 – Sept 2021",
     bullets: [
       "Earned MVP recognition during the developer training program for peer mentorship and technical contributions",
