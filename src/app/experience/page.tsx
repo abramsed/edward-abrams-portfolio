@@ -1,0 +1,38 @@
+import { experiences, education } from "@/data/resume";
+import TimelineItem from "../components/TimelineItem";
+
+export const metadata = {
+  title: "Experience | Edward D. Abrams",
+};
+
+export default function ExperiencePage() {
+  return (
+    <div className="mx-auto max-w-3xl px-6 py-20">
+      <h1 className="text-4xl font-bold tracking-tight text-white">
+        Work Experience
+      </h1>
+      <p className="mt-2 text-neutral-400">
+        6+ years of continuous growth at United Wholesale Mortgage.
+      </p>
+
+      <div className="mt-12">
+        {experiences.map((exp) => (
+          <TimelineItem key={exp.title} {...exp} />
+        ))}
+      </div>
+
+      {/* Education */}
+      <section className="mt-16 border-t border-neutral-800 pt-12">
+        <h2 className="text-2xl font-bold text-white">Education</h2>
+        <div className="mt-4">
+          <h3 className="text-lg font-semibold text-white">
+            {education.school}
+          </h3>
+          <p className="text-sm text-neutral-400">
+            {education.level}, {education.degree} &mdash; {education.date}
+          </p>
+        </div>
+      </section>
+    </div>
+  );
+}
