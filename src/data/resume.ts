@@ -1,7 +1,7 @@
 export const personalInfo = {
   name: "Edward D. Abrams",
   title: "Software Developer III",
-  location: "Metro Detroit",
+  location: "Detroit",
   email: "abramsed17@gmail.com",
   linkedin: "https://linkedin.com/in/edward-abrams-05873299",
   summary:
