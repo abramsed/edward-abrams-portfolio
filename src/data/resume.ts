@@ -1,7 +1,7 @@
 export const personalInfo = {
   name: "Edward D. Abrams",
   title: "Software Developer III",
-  location: "St. Clair Shores, MI",
+  location: "Metro Detroit",
   email: "abramsed17@gmail.com",
   linkedin: "https://linkedin.com/in/edward-abrams-05873299",
   summary:
@@ -21,9 +21,9 @@ export const experiences: Experience[] = [
     product: "Brand 360",
     period: "July 2024 – Present",
     bullets: [
-      "Lead frontend development for a CRM and content creation platform built on React with a Next.js server layer",
-      "Designed the Next.js service layer as the integration boundary for all third-party services, enforcing clean separation between the React frontend and external dependencies",
-      "Implemented the Canva API as the platform's first embedded creative tooling, enabling users to produce branded content without leaving the product",
+      "Lead frontend development for a CRM and content creation platform built with React and Next.js",
+      "Designed the Next.js service layer as the integration boundary for all third-party services, enforcing clean separation from external dependencies",
+      "Implemented the Canva API as the platform's first embedded creative tooling, enabling branded content creation without leaving the product",
     ],
   },
   {
@@ -31,8 +31,8 @@ export const experiences: Experience[] = [
     product: "UWM Portal",
     period: "June 2023 – July 2024",
     bullets: [
-      "Launched the company's first public-facing APIs, opening the platform to external partners and expanding its ecosystem reach",
-      "Directed engineering teams in onboarding third-party vendors, defining technical standards for connectivity, reliability, and maintainability",
+      "Launched the company's first public-facing APIs, opening the platform to external partners",
+      "Directed engineering teams in onboarding third-party vendors, defining connectivity standards",
       "Championed a structured testing discipline, establishing quality benchmarks that reduced regression risk across product lines",
     ],
   },
@@ -42,8 +42,8 @@ export const experiences: Experience[] = [
     period: "Sept 2021 – June 2023",
     bullets: [
       "Designed the organization's first polymorphic NoSQL model with a flexible, schema-agnostic structure",
-      "Migrated production data from SQL Server to Azure Cosmos DB, eliminating on-premises server costs and enabling auto-scaling cloud infrastructure",
-      "Reduced null column storage from 96% to near zero by persisting only populated fields as BSON documents",
+      "Migrated production data from SQL Server to Azure Cosmos DB, eliminating on-premises costs and enabling auto-scaling infrastructure",
+      "Reduced null column storage from 96% to near zero by persisting only populated fields as BSON",
     ],
   },
   {
@@ -51,9 +51,9 @@ export const experiences: Experience[] = [
     product: "Bolt",
     period: "Sept 2019 – Sept 2021",
     bullets: [
-      "Earned MVP recognition during the developer training program for peer mentorship and technical contributions",
-      "Delivered URLA regulatory compliance updates ahead of competitors, developing stored procedures, tables, and XML structures to meet new federal form requirements",
-      "Led development of a distributed .NET Core microservice with RESTful income calculation APIs, cutting loan underwriting time from 30 minutes to 5 minutes",
+      "Earned MVP recognition during the developer training program for peer mentorship and technical merit",
+      "Delivered URLA regulatory compliance updates ahead of competitors, developing stored procedures, tables, and XML structures for new federal requirements",
+      "Led development of a distributed .NET Core microservice with RESTful income calculation APIs, cutting underwriting time from 30 to 5 minutes",
     ],
   },
 ];
