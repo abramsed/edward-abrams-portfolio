@@ -1,4 +1,4 @@
-import { Experience } from "@/data/resume";
+import { Experience } from "@/lib/queries";
 
 export default function TimelineItem({
   title,

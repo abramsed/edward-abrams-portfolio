@@ -1,11 +1,14 @@
-import { skillCategories } from "@/data/resume";
+import { getSkillCategories } from "@/lib/queries";
 import SkillCard from "../components/SkillCard";
 
 export const metadata = {
   title: "Skills | Edward D. Abrams",
 };
 
-export default function SkillsPage() {
+export const dynamic = "force-dynamic";
+
+export default async function SkillsPage() {
+  const skillCategories = await getSkillCategories();
   return (
     <div className="mx-auto max-w-4xl px-6 py-20">
       <h1 className="text-4xl font-bold tracking-tight text-white">Skills</h1>

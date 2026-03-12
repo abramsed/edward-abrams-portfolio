@@ -1,11 +1,18 @@
-import { experiences, education } from "@/data/resume";
+import { getExperiences, getEducation } from "@/lib/queries";
 import TimelineItem from "../components/TimelineItem";
 
 export const metadata = {
   title: "Experience | Edward D. Abrams",
 };
 
-export default function ExperiencePage() {
+export const dynamic = "force-dynamic";
+
+export default async function ExperiencePage() {
+  const [experiences, education] = await Promise.all([
+    getExperiences(),
+    getEducation(),
+  ]);
+
   return (
     <div className="mx-auto max-w-3xl px-6 py-20">
       <h1 className="text-4xl font-bold tracking-tight text-white">

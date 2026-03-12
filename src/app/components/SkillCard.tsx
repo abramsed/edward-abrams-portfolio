@@ -1,4 +1,4 @@
-import { SkillCategory } from "@/data/resume";
+import { SkillCategory } from "@/lib/queries";
 
 export default function SkillCard({ label, icon, items }: SkillCategory) {
   return (

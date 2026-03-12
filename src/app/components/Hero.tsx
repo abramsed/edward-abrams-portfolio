@@ -1,17 +1,17 @@
 import Link from "next/link";
-import { personalInfo } from "@/data/resume";
+import { PersonalInfo } from "@/lib/queries";
 
-export default function Hero() {
+export default function Hero({ info }: { info: PersonalInfo }) {
   return (
-    <section className="flex min-h-[70vh] flex-col items-center justify-center text-center px-6">
+    <section className="flex min-h-[70vh] flex-col items-center justify-center text-center px-6 pt-16 sm:pt-0">
       <p className="mb-3 text-sm font-medium uppercase tracking-widest text-emerald-400">
-        {personalInfo.title}
+        {info.title}
       </p>
       <h1 className="text-5xl font-bold tracking-tight text-white sm:text-6xl">
-        {personalInfo.name}
+        {info.name}
       </h1>
       <p className="mt-6 max-w-2xl text-lg leading-relaxed text-neutral-400">
-        {personalInfo.summary}
+        {info.summary}
       </p>
 
       <div className="mt-10 flex flex-wrap justify-center gap-4">
@@ -30,10 +30,10 @@ export default function Hero() {
       </div>
 
       <div className="mt-8 flex gap-6 text-sm text-neutral-500">
-        <span>{personalInfo.location}</span>
+        <span>{info.location}</span>
         <span>•</span>
         <a
-          href={personalInfo.linkedin}
+          href={info.linkedin}
           target="_blank"
           rel="noopener noreferrer"
           className="transition-colors hover:text-emerald-400"
@@ -42,10 +42,10 @@ export default function Hero() {
         </a>
         <span>•</span>
         <a
-          href={`mailto:${personalInfo.email}`}
+          href={`mailto:${info.email}`}
           className="transition-colors hover:text-emerald-400"
         >
-          {personalInfo.email}
+          {info.email}
         </a>
       </div>
     </section>
