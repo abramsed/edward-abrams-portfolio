@@ -89,7 +89,7 @@ INSERT INTO skill_items (category_id, item) VALUES
   (1, 'C#'), (1, 'JavaScript'), (1, 'TypeScript'), (1, 'Python'), (1, 'SQL'),
   (2, 'React'), (2, 'Next.js'), (2, '.NET Core'),
   (3, 'OOP'), (3, 'N-Tier'), (3, 'MVC'), (3, 'DDD'), (3, 'RESTful APIs'), (3, 'Microservices'),
-  (4, 'Azure'), (4, 'Cosmos DB'), (4, 'MongoDB'), (4, 'SQL Server'), (4, 'SSMS'), (4, 'Git');
+  (4, 'Azure'), (4, 'Cosmos DB'), (4, 'MongoDB'), (4, 'PostgreSQL'), (4, 'Claude'), (4, 'Git');
 
 -- Seed: education
 INSERT INTO education (school, degree, level, date) VALUES (
