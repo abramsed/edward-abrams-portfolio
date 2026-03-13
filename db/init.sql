@@ -1,3 +1,6 @@
+-- Clean slate
+DROP TABLE IF EXISTS skill_items, skill_categories, experience_bullets, experiences, education, personal_info CASCADE;
+
 -- Schema
 CREATE TABLE personal_info (
   id SERIAL PRIMARY KEY,
