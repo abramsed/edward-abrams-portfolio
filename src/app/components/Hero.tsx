@@ -3,7 +3,7 @@ import { PersonalInfo } from "@/lib/queries";
 
 export default function Hero({ info }: { info: PersonalInfo }) {
   return (
-    <section className="flex min-h-[70vh] flex-col items-center justify-center text-center px-6 pt-16 sm:pt-0">
+    <section className="flex flex-1 flex-col items-center justify-center text-center px-6">
       <p className="mb-3 text-sm font-medium uppercase tracking-widest text-emerald-400">
         {info.title}
       </p>
