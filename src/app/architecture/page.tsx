@@ -61,7 +61,7 @@ docker-compose.yml    → App + Postgres`,
 
 export default function ArchitecturePage() {
   return (
-    <div className="mx-auto max-w-3xl px-6 py-20">
+    <div className="mx-auto max-w-3xl overflow-hidden px-6 py-20">
       <h1 className="text-4xl font-bold tracking-tight text-white">
         How This Site Is Built
       </h1>
@@ -80,7 +80,7 @@ export default function ArchitecturePage() {
               </p>
             )}
             {s.tree && (
-              <pre className="mt-4 overflow-x-auto rounded-lg border border-neutral-800 bg-neutral-900 p-4 text-sm text-neutral-300">
+              <pre className="mt-4 overflow-x-auto whitespace-pre-wrap break-words rounded-lg border border-neutral-800 bg-neutral-900 p-4 text-xs text-neutral-300 sm:text-sm">
                 {s.tree}
               </pre>
             )}

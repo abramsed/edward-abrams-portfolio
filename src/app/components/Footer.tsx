@@ -3,9 +3,9 @@ import { getPersonalInfo } from "@/lib/queries";
 export default async function Footer() {
   const info = await getPersonalInfo();
   return (
-    <footer className="border-t border-neutral-800 py-8 text-center text-sm text-neutral-500">
+    <footer className="border-t border-neutral-800 py-4 text-center text-sm text-neutral-500 sm:py-6">
       <div className="mx-auto max-w-5xl px-6">
-        <div className="mb-4 flex flex-wrap justify-center gap-4">
+        <div className="mb-2 flex flex-wrap justify-center gap-4 sm:mb-4">
           <span>{info.location}</span>
           <span>•</span>
           <a
