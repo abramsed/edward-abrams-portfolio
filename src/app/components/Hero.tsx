@@ -29,25 +29,6 @@ export default function Hero({ info }: { info: PersonalInfo }) {
         </Link>
       </div>
 
-      <div className="mt-8 flex gap-6 text-sm text-neutral-500">
-        <span>{info.location}</span>
-        <span>•</span>
-        <a
-          href={info.linkedin}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="transition-colors hover:text-emerald-400"
-        >
-          LinkedIn
-        </a>
-        <span>•</span>
-        <a
-          href={`mailto:${info.email}`}
-          className="transition-colors hover:text-emerald-400"
-        >
-          {info.email}
-        </a>
-      </div>
     </section>
   );
 }

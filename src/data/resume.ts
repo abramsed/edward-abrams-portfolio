@@ -5,7 +5,7 @@ export const personalInfo = {
   email: "abramsed17@gmail.com",
   linkedin: "https://linkedin.com/in/edward-abrams-05873299",
   summary:
-    "Former educator turned software engineer — 6+ years of continuous advancement at United Wholesale Mortgage, from developer trainee to team leader to SDE III. Specializes in cloud-native data architecture, public API design, and React/Next.js product development.",
+    "Accomplished fullstack engineer with 6+ years of continuous growth and leadership in software development. Designs scalable, performant web applications with intuitive, reliable user experiences.",
 };
 
 export interface Experience {
@@ -21,9 +21,9 @@ export const experiences: Experience[] = [
     product: "Brand 360",
     period: "July 2024 – Present",
     bullets: [
-      "Lead frontend development for a CRM and content creation platform built with React and Next.js",
-      "Designed the Next.js service layer as the integration boundary for all third-party services, enforcing clean separation from external dependencies",
-      "Implemented the Canva API as the platform's first embedded creative tooling, enabling branded content creation without leaving the product",
+      "Frontend development lead for a CRM and content creation platform built with React and Next.js",
+      "Established SAML and OAuth connectivity for the Canva API, leveraging PKCE flow with SHA-256 encoding and verification",
+      "Scoped contexts for persistent state management within defined boundaries to reduce network traffic and optimize memory consumption",
     ],
   },
   {
@@ -31,9 +31,9 @@ export const experiences: Experience[] = [
     product: "UWM Portal",
     period: "June 2023 – July 2024",
     bullets: [
-      "Launched the company's first public-facing APIs, opening the platform to external partners",
+      "Launched the company's first public-facing .NET APIs, opening the platform to external partners",
       "Directed engineering teams in onboarding third-party vendors, defining connectivity standards",
-      "Championed a structured testing discipline, establishing quality benchmarks that reduced regression risk across product lines",
+      "Championed a structured testing discipline with quality benchmarks to reduce regression risk",
     ],
   },
   {
@@ -41,9 +41,9 @@ export const experiences: Experience[] = [
     product: "Edge",
     period: "Sept 2021 – June 2023",
     bullets: [
-      "Designed the organization's first polymorphic NoSQL model with a flexible, schema-agnostic structure",
-      "Migrated production data from SQL Server to Azure Cosmos DB, eliminating on-premises costs and enabling auto-scaling infrastructure",
-      "Reduced null column storage from 96% to near zero by persisting only populated fields as BSON",
+      "Introduced the organization to enterprise NoSQL platforms with auto-scaling cloud infrastructure",
+      "Migrated a terabyte of SQL Server data to Azure Cosmos DB, alleviating costs of on-premises servers",
+      "Developed eventually consistent data replication pipelines with Apache Spark to maintain legacy reports",
     ],
   },
   {
@@ -52,8 +52,8 @@ export const experiences: Experience[] = [
     period: "Sept 2019 – Sept 2021",
     bullets: [
       "Earned MVP recognition during the developer training program for peer mentorship and technical merit",
-      "Delivered URLA regulatory compliance updates ahead of competitors, developing stored procedures, tables, and XML structures for new federal requirements",
-      "Led development of a distributed .NET Core microservice with RESTful income calculation APIs, cutting underwriting time from 30 to 5 minutes",
+      "Delivered regulatory compliance updates ahead of competitors using a stangler pattern to route loans based on submission date",
+      "Led development of RESTful income calculation APIs, eliminating manual underwriting processes performed in Excel macros",
     ],
   },
 ];
@@ -68,22 +68,17 @@ export const skillCategories: SkillCategory[] = [
   {
     label: "Languages",
     icon: "💻",
-    items: ["C#", "JavaScript", "TypeScript", "Python", "SQL"],
+    items: ["C#", "TypeScript", "Python", "T-SQL"],
   },
   {
     label: "Frameworks",
     icon: "⚙️",
-    items: ["React", "Next.js", ".NET Core"],
-  },
-  {
-    label: "Architecture",
-    icon: "🏗️",
-    items: ["OOP", "N-Tier", "MVC", "DDD", "RESTful APIs", "Microservices"],
+    items: [".NET", "React", "Next.js", "Svelte"],
   },
   {
     label: "Tools & Data",
     icon: "🛠️",
-    items: ["Azure", "Cosmos DB", "MongoDB", "SQL Server", "SSMS", "Git"],
+    items: ["Azure", "GCP", "MongoDB", "PostgreSQL", "Kafka", "Redis", "Docker", "Terraform"],
   },
 ];
 

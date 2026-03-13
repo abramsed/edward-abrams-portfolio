@@ -13,7 +13,7 @@ export default async function SkillsPage() {
     <div className="mx-auto max-w-4xl px-6 py-20">
       <h1 className="text-4xl font-bold tracking-tight text-white">Skills</h1>
       <p className="mt-2 text-neutral-400">
-        A breakdown of languages, frameworks, patterns, and tools I work with.
+        A breakdown of languages, frameworks, and platforms I work with.
       </p>
 
       <div className="mt-12 grid gap-6 sm:grid-cols-2">
@@ -29,19 +29,19 @@ export default async function SkillsPage() {
           {[
             {
               label: "Cloud-Native Data",
-              desc: "Migrated production workloads from SQL Server to Azure Cosmos DB with polymorphic NoSQL modelling, eliminating 96% null-column waste.",
+              desc: "Migrated a terabyte of SQL Server data to Azure Cosmos DB and built eventually consistent replication pipelines with Apache Spark.",
             },
             {
-              label: "Public API Design",
-              desc: "Launched the first public-facing APIs at UWM, defining connectivity and reliability standards for external partners.",
+              label: "API Security & Identity",
+              desc: "Established SAML and OAuth connectivity for the Canva API, leveraging PKCE flow with SHA-256 encoding and verification.",
             },
             {
               label: "React / Next.js",
-              desc: "Lead frontend development on a CRM platform with a Next.js service layer as the integration boundary for all third-party services.",
+              desc: "Frontend development lead for a CRM platform, with scoped contexts for persistent state management to reduce network traffic and optimize memory.",
             },
             {
-              label: "Microservices",
-              desc: "Built a distributed .NET Core microservice with RESTful income calculation APIs, cutting underwriting time from 30 min to 5 min.",
+              label: "Public .NET APIs",
+              desc: "Launched the company's first public-facing .NET APIs, opening the platform to external partners and defining connectivity standards.",
             },
           ].map((h) => (
             <li key={h.label} className="flex items-start gap-3">

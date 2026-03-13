@@ -52,7 +52,7 @@ INSERT INTO personal_info (name, title, location, email, linkedin, summary) VALU
   'Detroit',
   'abramsed17@gmail.com',
   'https://linkedin.com/in/edward-abrams-05873299',
-  'Former educator turned software engineer — 6+ years of continuous advancement at United Wholesale Mortgage, from developer trainee to team leader to SDE III. Specializes in cloud-native data architecture, public API design, and React/Next.js product development.'
+  'Accomplished fullstack engineer with 6+ years of continuous growth and leadership in software development. Designs scalable, performant web applications with intuitive, reliable user experiences.'
 );
 
 -- Seed: experiences
@@ -64,32 +64,30 @@ INSERT INTO experiences (title, product, period, sort_order) VALUES
 
 -- Seed: experience_bullets
 INSERT INTO experience_bullets (experience_id, bullet, sort_order) VALUES
-  (1, 'Lead frontend development for a CRM and content creation platform built with React and Next.js', 1),
-  (1, 'Designed the Next.js service layer as the integration boundary for all third-party services, enforcing clean separation from external dependencies', 2),
-  (1, 'Implemented the Canva API as the platform''s first embedded creative tooling, enabling branded content creation without leaving the product', 3),
-  (2, 'Launched the company''s first public-facing APIs, opening the platform to external partners', 1),
+  (1, 'Frontend development lead for a CRM and content creation platform built with React and Next.js', 1),
+  (1, 'Established SAML and OAuth connectivity for the Canva API, leveraging PKCE flow with SHA-256 encoding and verification', 2),
+  (1, 'Scoped contexts for persistent state management within defined boundaries to reduce network traffic and optimize memory consumption', 3),
+  (2, 'Launched the company''s first public-facing .NET APIs, opening the platform to external partners', 1),
   (2, 'Directed engineering teams in onboarding third-party vendors, defining connectivity standards', 2),
-  (2, 'Championed a structured testing discipline, establishing quality benchmarks that reduced regression risk across product lines', 3),
-  (3, 'Designed the organization''s first polymorphic NoSQL model with a flexible, schema-agnostic structure', 1),
-  (3, 'Migrated production data from SQL Server to Azure Cosmos DB, eliminating on-premises costs and enabling auto-scaling infrastructure', 2),
-  (3, 'Reduced null column storage from 96% to near zero by persisting only populated fields as BSON', 3),
+  (2, 'Championed a structured testing discipline with quality benchmarks to reduce regression risk', 3),
+  (3, 'Introduced the organization to enterprise NoSQL platforms with auto-scaling cloud infrastructure', 1),
+  (3, 'Migrated a terabyte of SQL Server data to Azure Cosmos DB, alleviating costs of on-premises servers', 2),
+  (3, 'Developed eventually consistent data replication pipelines with Apache Spark to maintain legacy reports', 3),
   (4, 'Earned MVP recognition during the developer training program for peer mentorship and technical merit', 1),
-  (4, 'Delivered URLA regulatory compliance updates ahead of competitors, developing stored procedures, tables, and XML structures for new federal requirements', 2),
-  (4, 'Led development of a distributed .NET Core microservice with RESTful income calculation APIs, cutting underwriting time from 30 to 5 minutes', 3);
+  (4, 'Delivered regulatory compliance updates ahead of competitors using a stangler pattern to route loans based on submission date', 2),
+  (4, 'Led development of RESTful income calculation APIs, eliminating manual underwriting processes performed in Excel macros', 3);
 
 -- Seed: skill_categories
 INSERT INTO skill_categories (label, icon, sort_order) VALUES
   ('Languages', '💻', 1),
   ('Frameworks', '⚙️', 2),
-  ('Architecture', '🏗️', 3),
-  ('Tools & Data', '🛠️', 4);
+  ('Tools & Data', '🛠️', 3);
 
 -- Seed: skill_items
 INSERT INTO skill_items (category_id, item) VALUES
-  (1, 'C#'), (1, 'JavaScript'), (1, 'TypeScript'), (1, 'Python'), (1, 'SQL'),
-  (2, 'React'), (2, 'Next.js'), (2, '.NET Core'),
-  (3, 'OOP'), (3, 'N-Tier'), (3, 'MVC'), (3, 'DDD'), (3, 'RESTful APIs'), (3, 'Microservices'),
-  (4, 'Azure'), (4, 'Cosmos DB'), (4, 'MongoDB'), (4, 'PostgreSQL'), (4, 'Claude'), (4, 'Git');
+  (1, 'C#'), (1, 'TypeScript'), (1, 'Python'), (1, 'T-SQL'),
+  (2, '.NET'), (2, 'React'), (2, 'Next.js'), (2, 'Svelte'),
+  (3, 'Azure'), (3, 'GCP'), (3, 'MongoDB'), (3, 'PostgreSQL'), (3, 'Kafka'), (3, 'Redis'), (3, 'Docker'), (3, 'Terraform');
 
 -- Seed: education
 INSERT INTO education (school, degree, level, date) VALUES (

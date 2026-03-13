@@ -15,7 +15,7 @@ export default function Navbar() {
 
   return (
     <nav className="sticky top-0 z-50 border-b border-neutral-800 bg-neutral-950/80 backdrop-blur-md">
-      <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
+      <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-4 px-6 py-4">
         <Link href="/" className="text-lg font-bold tracking-tight text-white">
           EA<span className="text-emerald-400">.</span>
         </Link>
