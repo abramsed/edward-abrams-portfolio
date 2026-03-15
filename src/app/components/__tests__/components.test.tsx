@@ -15,11 +15,20 @@ vi.mock("@/lib/queries", () => ({
 
 // ---- Mock next/image as a plain img ----
 vi.mock("next/image", () => ({
-  default: ({ src, alt, width, height, className, onLoad }: {
-    src: string; alt: string; width: number; height: number;
-    className?: string; onLoad?: () => void;
+  default: ({ src, alt, width, height, fill, sizes, className, onLoad }: {
+    src: string; alt: string; width?: number; height?: number;
+    fill?: boolean; sizes?: string; className?: string; onLoad?: () => void;
   }) => (
-    <img src={src} alt={alt} width={width} height={height} className={className} onLoad={onLoad} />
+    <img
+      src={src}
+      alt={alt}
+      width={fill ? undefined : width}
+      height={fill ? undefined : height}
+      data-fill={fill ? "true" : undefined}
+      data-sizes={sizes}
+      className={className}
+      onLoad={onLoad}
+    />
   ),
 }));
 

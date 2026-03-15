@@ -1,4 +1,4 @@
-CREATE TABLE "education" (
+CREATE TABLE IF NOT EXISTS "education" (
 	"id" serial PRIMARY KEY NOT NULL,
 	"school" text NOT NULL,
 	"degree" text NOT NULL,
@@ -6,14 +6,14 @@ CREATE TABLE "education" (
 	"date" text NOT NULL
 );
 --> statement-breakpoint
-CREATE TABLE "experience_bullets" (
+CREATE TABLE IF NOT EXISTS "experience_bullets" (
 	"id" serial PRIMARY KEY NOT NULL,
 	"experience_id" integer NOT NULL,
 	"bullet" text NOT NULL,
 	"sort_order" integer NOT NULL
 );
 --> statement-breakpoint
-CREATE TABLE "experiences" (
+CREATE TABLE IF NOT EXISTS "experiences" (
 	"id" serial PRIMARY KEY NOT NULL,
 	"title" text NOT NULL,
 	"product" text NOT NULL,
@@ -21,7 +21,7 @@ CREATE TABLE "experiences" (
 	"sort_order" integer NOT NULL
 );
 --> statement-breakpoint
-CREATE TABLE "personal_info" (
+CREATE TABLE IF NOT EXISTS "personal_info" (
 	"id" serial PRIMARY KEY NOT NULL,
 	"name" text NOT NULL,
 	"title" text NOT NULL,
@@ -31,21 +31,21 @@ CREATE TABLE "personal_info" (
 	"summary" text NOT NULL
 );
 --> statement-breakpoint
-CREATE TABLE "skill_categories" (
+CREATE TABLE IF NOT EXISTS "skill_categories" (
 	"id" serial PRIMARY KEY NOT NULL,
 	"label" text NOT NULL,
 	"icon" text NOT NULL,
 	"sort_order" integer NOT NULL
 );
 --> statement-breakpoint
-CREATE TABLE "skill_highlights" (
+CREATE TABLE IF NOT EXISTS "skill_highlights" (
 	"id" serial PRIMARY KEY NOT NULL,
 	"label" text NOT NULL,
 	"description" text NOT NULL,
 	"sort_order" integer NOT NULL
 );
 --> statement-breakpoint
-CREATE TABLE "skill_items" (
+CREATE TABLE IF NOT EXISTS "skill_items" (
 	"id" serial PRIMARY KEY NOT NULL,
 	"category_id" integer NOT NULL,
 	"item" text NOT NULL
