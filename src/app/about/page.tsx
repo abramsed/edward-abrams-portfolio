@@ -8,7 +8,26 @@ const sections = [
   {
     title: "Project Structure",
     content: "",
-    tree:
+    treeCompact:
+`src/
+├── app/
+│   ├── layout.tsx
+│   ├── page.tsx
+│   ├── experience/page.tsx
+│   ├── skills/page.tsx
+│   ├── about/page.tsx
+│   ├── components/
+│   └── globals.css
+└── lib/
+    ├── db.ts
+    ├── schema.ts
+    └── queries.ts
+db/
+├── migrations/
+└── seed.ts
+drizzle.config.ts
+tailwind.config.ts`,
+    treeFull:
 `src/
 ├── app/
 │   ├── layout.tsx              # Root layout (Navbar + Footer)
@@ -85,9 +104,14 @@ export default function AboutPage() {
                 {s.content}
               </p>
             )}
-            {s.tree && (
-              <pre className="mt-4 overflow-x-auto whitespace-pre-wrap break-words rounded-lg border border-blue-800 bg-blue-950 p-4 text-xs text-blue-200 sm:text-sm">
-                {s.tree}
+            {s.treeCompact && (
+              <pre className="mt-4 rounded-lg border border-blue-800 bg-blue-950 p-4 text-xs text-blue-200 sm:hidden">
+                {s.treeCompact}
+              </pre>
+            )}
+            {s.treeFull && (
+              <pre className="mt-4 hidden rounded-lg border border-blue-800 bg-blue-950 p-4 text-sm text-blue-200 sm:block">
+                {s.treeFull}
               </pre>
             )}
           </section>
