@@ -1,5 +1,5 @@
 -- Clean slate
-DROP TABLE IF EXISTS skill_items, skill_categories, experience_bullets, experiences, education, personal_info CASCADE;
+DROP TABLE IF EXISTS skill_highlights, skill_items, skill_categories, experience_bullets, experiences, education, personal_info CASCADE;
 
 -- Schema
 CREATE TABLE personal_info (
@@ -38,6 +38,13 @@ CREATE TABLE skill_items (
   id SERIAL PRIMARY KEY,
   category_id INT NOT NULL REFERENCES skill_categories(id),
   item TEXT NOT NULL
+);
+
+CREATE TABLE skill_highlights (
+  id SERIAL PRIMARY KEY,
+  label TEXT NOT NULL,
+  description TEXT NOT NULL,
+  sort_order INT NOT NULL
 );
 
 CREATE TABLE education (
@@ -91,6 +98,13 @@ INSERT INTO skill_items (category_id, item) VALUES
   (1, 'C#'), (1, 'TypeScript'), (1, 'Python'), (1, 'T-SQL'),
   (2, '.NET'), (2, 'React'), (2, 'Next.js'), (2, 'Svelte'),
   (3, 'Azure'), (3, 'GCP'), (3, 'MongoDB'), (3, 'PostgreSQL'), (3, 'Kafka'), (3, 'Redis'), (3, 'Docker'), (3, 'Terraform');
+
+-- Seed: skill_highlights
+INSERT INTO skill_highlights (label, description, sort_order) VALUES
+  ('Cloud-Native Data', 'Migrated a terabyte of SQL Server data to Azure Cosmos DB and built eventually consistent replication pipelines with Apache Spark.', 1),
+  ('API Security & Identity', 'Established SAML and OAuth connectivity for the Canva API, leveraging PKCE flow with SHA-256 encoding and verification.', 2),
+  ('React / Next.js', 'Frontend development lead for a CRM platform using React and Next.js; combined server-side fetching with scoped client contexts and caching to reduce network traffic and optimize memory.', 3),
+  ('Public .NET APIs', 'Launched the company''s first public-facing .NET APIs, opening the platform to external partners and defining connectivity standards.', 4);
 
 -- Seed: education
 INSERT INTO education (school, degree, level, date) VALUES (

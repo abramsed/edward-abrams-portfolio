@@ -22,6 +22,11 @@ export interface SkillCategory {
   items: string[];
 }
 
+export interface SkillHighlight {
+  label: string;
+  description: string;
+}
+
 export interface Education {
   school: string;
   degree: string;
@@ -81,6 +86,13 @@ export async function getSkillCategories(): Promise<SkillCategory[]> {
     icon: c.icon,
     items: itemMap.get(c.id) ?? [],
   }));
+}
+
+export async function getSkillHighlights(): Promise<SkillHighlight[]> {
+  const { rows } = await pool.query(
+    "SELECT label, description FROM skill_highlights ORDER BY sort_order"
+  );
+  return rows;
 }
 
 export async function getEducation(): Promise<Education> {

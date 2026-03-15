@@ -1,5 +1,27 @@
 import { describe, it, expect, vi } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
+
+// ---- Mock DB queries (Footer is an async server component) ----
+vi.mock("@/lib/queries", () => ({
+  getPersonalInfo: vi.fn().mockResolvedValue({
+    name: "Jane Doe",
+    title: "Software Engineer",
+    location: "Detroit, MI",
+    email: "jane@example.com",
+    linkedin: "https://linkedin.com/in/janedoe",
+    summary: "Full-stack engineer specializing in React and Node.",
+  }),
+}));
+
+// ---- Mock next/image as a plain img ----
+vi.mock("next/image", () => ({
+  default: ({ src, alt, width, height, className, onLoad }: {
+    src: string; alt: string; width: number; height: number;
+    className?: string; onLoad?: () => void;
+  }) => (
+    <img src={src} alt={alt} width={width} height={height} className={className} onLoad={onLoad} />
+  ),
+}));
 
 // ---- Mock next/link as a plain anchor ----
 vi.mock("next/link", () => ({
@@ -28,6 +50,7 @@ import SkillCard from "../SkillCard";
 import TimelineItem from "../TimelineItem";
 import Footer from "../Footer";
 import Navbar from "../Navbar";
+import ProfileImage from "../ProfileImage";
 
 // ---- Fixtures ----
 const personalInfo = {
@@ -75,19 +98,6 @@ describe("Hero", () => {
     expect(skillsLink).toHaveAttribute("href", "/skills");
   });
 
-  it("renders contact info with correct links", () => {
-    render(<Hero info={personalInfo} />);
-    expect(screen.getByText("Detroit, MI")).toBeInTheDocument();
-
-    const linkedinLink = screen.getByRole("link", { name: /linkedin/i });
-    expect(linkedinLink).toHaveAttribute(
-      "href",
-      "https://linkedin.com/in/janedoe"
-    );
-
-    const emailLink = screen.getByRole("link", { name: /jane@example\.com/i });
-    expect(emailLink).toHaveAttribute("href", "mailto:jane@example.com");
-  });
 });
 
 // ---- SkillCard ----
@@ -126,13 +136,42 @@ describe("TimelineItem", () => {
 
 // ---- Footer ----
 describe("Footer", () => {
-  it("renders the current year and tech stack", () => {
-    render(<Footer />);
+  it("renders the current year and tech stack", async () => {
+    render(await Footer());
     const year = new Date().getFullYear().toString();
     expect(screen.getByText(new RegExp(year))).toBeInTheDocument();
-    expect(screen.getByText("Next.js")).toBeInTheDocument();
-    expect(screen.getByText("TypeScript")).toBeInTheDocument();
-    expect(screen.getByText("PostgreSQL")).toBeInTheDocument();
+    expect(screen.getByText(/Next\.js/)).toBeInTheDocument();
+    expect(screen.getByText(/TypeScript/)).toBeInTheDocument();
+    expect(screen.getByText(/PostgreSQL/)).toBeInTheDocument();
+  });
+
+  it("renders contact info from DB", async () => {
+    render(await Footer());
+    expect(screen.getByText("Detroit, MI")).toBeInTheDocument();
+    const linkedinLink = screen.getByRole("link", { name: /linkedin/i });
+    expect(linkedinLink).toHaveAttribute("href", "https://linkedin.com/in/janedoe");
+    const emailLink = screen.getByRole("link", { name: /jane@example\.com/i });
+    expect(emailLink).toHaveAttribute("href", "mailto:jane@example.com");
+  });
+});
+
+// ---- ProfileImage ----
+describe("ProfileImage", () => {
+  it("shows skeleton and hides image before load", () => {
+    render(<ProfileImage />);
+    const img = screen.getByRole("img", { name: /edward d. abrams/i });
+    expect(img.className).toContain("opacity-0");
+    const skeleton = document.querySelector(".animate-pulse");
+    expect(skeleton).toBeInTheDocument();
+  });
+
+  it("shows image and removes skeleton after load", () => {
+    render(<ProfileImage />);
+    const img = screen.getByRole("img", { name: /edward d. abrams/i });
+    fireEvent.load(img);
+    expect(img.className).toContain("opacity-100");
+    const skeleton = document.querySelector(".animate-pulse");
+    expect(skeleton).not.toBeInTheDocument();
   });
 });
 
@@ -153,17 +192,17 @@ describe("Navbar", () => {
       "/skills"
     );
     expect(
-      screen.getByRole("link", { name: /architecture/i })
-    ).toHaveAttribute("href", "/architecture");
+      screen.getByRole("link", { name: /about/i })
+    ).toHaveAttribute("href", "/about");
   });
 
   it("highlights the active link", () => {
     render(<Navbar />);
-    // pathname is mocked to "/" so Home should be active (emerald-400)
+    // pathname is mocked to "/" so Home should be active (rose-400)
     const homeLink = screen.getByRole("link", { name: /home/i });
-    expect(homeLink.className).toContain("text-emerald-400");
+    expect(homeLink.className).toContain("text-rose-400");
 
     const expLink = screen.getByRole("link", { name: /experience/i });
-    expect(expLink.className).toContain("text-neutral-400");
+    expect(expLink.className).toContain("text-blue-300");
   });
 });

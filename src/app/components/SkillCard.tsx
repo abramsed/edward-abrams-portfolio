@@ -2,7 +2,7 @@ import { SkillCategory } from "@/lib/queries";
 
 export default function SkillCard({ label, icon, items }: SkillCategory) {
   return (
-    <div className="rounded-xl border border-neutral-800 bg-neutral-900/50 p-6 transition-colors hover:border-emerald-500/40">
+    <div className="rounded-xl border border-blue-800 bg-blue-900 p-6 transition-colors hover:border-rose-400">
       <div className="mb-4 flex items-center gap-3">
         <span className="text-2xl">{icon}</span>
         <h3 className="text-lg font-semibold text-white">{label}</h3>
@@ -11,7 +11,7 @@ export default function SkillCard({ label, icon, items }: SkillCategory) {
         {items.map((item) => (
           <span
             key={item}
-            className="rounded-full bg-neutral-800 px-3 py-1 text-sm text-neutral-300"
+            className="rounded-full bg-blue-800 px-3 py-1 text-sm text-blue-100 border border-blue-700"
           >
             {item}
           </span>

@@ -11,7 +11,6 @@
     "test:run": "vitest run"
   },
   "dependencies": {
-    "@tanstack/react-query": "^5.90.21",
     "next": "14.2.35",
     "pg": "^8.20.0",
     "react": "^18",

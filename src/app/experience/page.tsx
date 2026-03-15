@@ -26,13 +26,13 @@ export default async function ExperiencePage() {
       </div>
 
       {/* Education */}
-      <section className="mt-16 border-t border-neutral-800 pt-12">
+      <section className="mt-16 border-t border-blue-800 pt-12">
         <h2 className="text-2xl font-bold text-white">Education</h2>
         <div className="mt-4">
           <h3 className="text-lg font-semibold text-white">
             {education.school}
           </h3>
-          <p className="text-sm text-neutral-400">
+          <p className="text-sm text-blue-300">
             {education.level}, {education.degree} &mdash; {education.date}
           </p>
         </div>
