@@ -15,7 +15,7 @@ export default async function SkillsPage() {
     getSkillHighlights(),
   ]);
   return (
-    <div className="mx-auto max-w-4xl px-6 py-10 sm:py-12">
+    <div className="mx-auto max-w-4xl px-6 py-6 sm:py-12">
       <h1 className="text-4xl font-bold tracking-tight text-white">Skills</h1>
       <p className="mt-2 text-blue-200">
         A breakdown of languages, frameworks, and platforms I work with.

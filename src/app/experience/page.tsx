@@ -16,7 +16,7 @@ export default async function ExperiencePage() {
   ]);
 
   return (
-    <div className="mx-auto max-w-3xl px-6 py-10 sm:py-12">
+    <div className="mx-auto max-w-3xl px-6 py-6 sm:py-12">
       <h1 className="text-4xl font-bold tracking-tight text-white">
         Work Experience
       </h1>
