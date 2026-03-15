@@ -85,10 +85,10 @@ async function seed() {
       { experienceId: e1, bullet: "Frontend development lead for a CRM and content creation platform built with React and Next.js", sortOrder: 1 },
       { experienceId: e1, bullet: "Established SAML and OAuth connectivity for the Canva API, leveraging PKCE flow with SHA-256 encoding and verification", sortOrder: 2 },
       { experienceId: e1, bullet: "Scoped contexts for persistent state management within defined boundaries to reduce network traffic and optimize memory consumption", sortOrder: 3 },
-      { experienceId: e2, bullet: "Launched the company's first public-facing .NET APIs, opening the platform to external partners", sortOrder: 1 },
+      { experienceId: e2, bullet: "Launched company's first public-facing .NET APIs, opening the platform to external partners", sortOrder: 1 },
       { experienceId: e2, bullet: "Directed engineering teams in onboarding third-party vendors, defining connectivity standards", sortOrder: 2 },
       { experienceId: e2, bullet: "Championed a structured testing discipline with quality benchmarks to reduce regression risk", sortOrder: 3 },
-      { experienceId: e3, bullet: "Introduced the organization to enterprise NoSQL platforms with auto-scaling cloud infrastructure", sortOrder: 1 },
+      { experienceId: e3, bullet: "Introduced organization to enterprise NoSQL platforms with auto-scaling cloud infrastructure", sortOrder: 1 },
       { experienceId: e3, bullet: "Migrated a terabyte of SQL Server data to Azure Cosmos DB, alleviating costs of on-premises servers", sortOrder: 2 },
       { experienceId: e3, bullet: "Developed eventually consistent data replication pipelines with Apache Spark to maintain legacy reports", sortOrder: 3 },
       { experienceId: e4, bullet: "Earned MVP recognition during the developer training program for peer mentorship and technical merit", sortOrder: 1 },
@@ -115,9 +115,9 @@ async function seed() {
 
     await db.insert(skillItems).values([
       { categoryId: lang, item: "C#" },
-      { categoryId: lang, item: "TypeScript" },
-      { categoryId: lang, item: "Python" },
       { categoryId: lang, item: "T-SQL" },
+      { categoryId: lang, item: "Python" },
+      { categoryId: lang, item: "TypeScript" },
       { categoryId: fw, item: ".NET" },
       { categoryId: fw, item: "React" },
       { categoryId: fw, item: "Next.js" },
@@ -143,7 +143,7 @@ async function seed() {
       { label: "Cloud-Native Data", description: "Migrated a terabyte of SQL Server data to Azure Cosmos DB and built eventually consistent replication pipelines with Apache Spark.", sortOrder: 1 },
       { label: "API Security & Identity", description: "Established SAML and OAuth connectivity for the Canva API, leveraging PKCE flow with SHA-256 encoding and verification.", sortOrder: 2 },
       { label: "React / Next.js", description: "Frontend development lead for a CRM platform using React and Next.js; combined server-side fetching with scoped client contexts and caching to reduce network traffic and optimize memory.", sortOrder: 3 },
-      { label: "Public .NET APIs", description: "Launched the company's first public-facing .NET APIs, opening the platform to external partners and defining connectivity standards.", sortOrder: 4 },
+      { label: "Public .NET APIs", description: "Launched company's first public-facing .NET APIs, opening the platform to external partners and defining connectivity standards.", sortOrder: 4 },
     ]);
     console.log("  ✓ skill_highlights");
   } else {

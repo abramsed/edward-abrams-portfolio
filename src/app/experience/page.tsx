@@ -19,14 +19,14 @@ export default async function ExperiencePage() {
         Work Experience
       </h1>
 
-      <div className="mt-12">
+      <div className="mt-4 sm:mt-12">
         {experiences.map((exp) => (
           <TimelineItem key={exp.title} {...exp} />
         ))}
       </div>
 
       {/* Education */}
-      <section className="mt-16 border-t border-blue-800 pt-12">
+      <section className="mt-8 border-t border-blue-800 pt-6 sm:mt-16 sm:pt-12">
         <h2 className="text-2xl font-bold text-white">Education</h2>
         <div className="mt-4">
           <h3 className="text-lg font-semibold text-white">
