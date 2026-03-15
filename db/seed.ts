@@ -70,10 +70,10 @@ async function seed() {
   const existingExperiences = await db.select().from(experiences).limit(1);
   if (existingExperiences.length === 0) {
     await db.insert(experiences).values([
-      { title: "Software Developer III", product: "Brand 360", period: "July 2024 – Present", sortOrder: 1 },
-      { title: "Team Leader, Product Development", product: "UWM Portal", period: "June 2023 – July 2024", sortOrder: 2 },
-      { title: "Software Developer II", product: "Edge", period: "Sept 2021 – June 2023", sortOrder: 3 },
-      { title: "Trainee → Software Developer I", product: "Bolt", period: "Sept 2019 – Sept 2021", sortOrder: 4 },
+      { title: "Software Developer III", period: "July 2024 – Present", sortOrder: 1 },
+      { title: "Team Leader, Product Development", period: "June 2023 – July 2024", sortOrder: 2 },
+      { title: "Software Developer II", period: "Sept 2021 – June 2023", sortOrder: 3 },
+      { title: "Trainee → Software Developer I", period: "Sept 2019 – Sept 2021", sortOrder: 4 },
     ]);
     console.log("  ✓ experiences");
 

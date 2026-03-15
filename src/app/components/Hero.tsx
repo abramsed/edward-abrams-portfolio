@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { PersonalInfo } from "@/lib/queries";
-import DodecahedronIcon from "./DodecahedronIcon";
+import HexagonIcon from "./HexagonIcon";
 
 export default function Hero({ info }: { info: PersonalInfo }) {
   return (
@@ -12,7 +12,7 @@ export default function Hero({ info }: { info: PersonalInfo }) {
         {info.name.split(".").length > 1 ? (
           <>
             {info.name.split(".")[0]}
-            <DodecahedronIcon className="w-4 h-4 sm:w-5 sm:h-5 mx-0.5" />
+            <HexagonIcon className="w-4 h-4 sm:w-5 sm:h-5 mx-0.5" />
             {info.name.split(".").slice(1).join(".")}
           </>
         ) : (

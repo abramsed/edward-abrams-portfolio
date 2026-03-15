@@ -18,7 +18,6 @@ export const personalInfo = pgTable("personal_info", {
 export const experiences = pgTable("experiences", {
   id: serial("id").primaryKey(),
   title: text("title").notNull(),
-  product: text("product").notNull(),
   period: text("period").notNull(),
   sortOrder: integer("sort_order").notNull(),
 });

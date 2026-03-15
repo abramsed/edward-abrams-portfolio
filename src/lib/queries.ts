@@ -21,7 +21,6 @@ export interface PersonalInfo {
 
 export interface Experience {
   title: string;
-  product: string;
   period: string;
   bullets: string[];
 }
@@ -79,7 +78,6 @@ export async function getExperiences(): Promise<Experience[]> {
 
   return exps.map((e) => ({
     title: e.title,
-    product: e.product,
     period: e.period,
     bullets: bulletMap.get(e.id) ?? [],
   }));

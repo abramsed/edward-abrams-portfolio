@@ -1,10 +1,11 @@
 import { SkillCategory } from "@/lib/queries";
+import { SkillIcon } from "./SkillIcons";
 
 export default function SkillCard({ label, icon, items }: SkillCategory) {
   return (
     <div className="rounded-xl border border-blue-800 bg-blue-900 p-6 transition-colors hover:border-rose-400">
       <div className="mb-4 flex items-center gap-3">
-        <span className="text-2xl">{icon}</span>
+        <SkillIcon icon={icon} className="w-7 h-7" />
         <h3 className="text-lg font-semibold text-white">{label}</h3>
       </div>
       <div className="flex flex-wrap gap-2">

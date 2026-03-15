@@ -60,7 +60,7 @@ import TimelineItem from "../TimelineItem";
 import Footer from "../Footer";
 import Navbar from "../Navbar";
 import ProfileImage from "../ProfileImage";
-import DodecahedronIcon from "../DodecahedronIcon";
+import HexagonIcon from "../HexagonIcon";
 
 // ---- Fixtures ----
 const personalInfo = {
@@ -74,7 +74,6 @@ const personalInfo = {
 
 const experience = {
   title: "Senior Developer",
-  product: "Acme Platform",
   period: "2022 – Present",
   bullets: ["Led migration to microservices", "Reduced latency by 40%"],
 };
@@ -128,10 +127,9 @@ describe("SkillCard", () => {
 
 // ---- TimelineItem ----
 describe("TimelineItem", () => {
-  it("renders title, product, and period", () => {
+  it("renders title and period", () => {
     render(<TimelineItem {...experience} />);
     expect(screen.getByText("Senior Developer")).toBeInTheDocument();
-    expect(screen.getByText("Acme Platform")).toBeInTheDocument();
     expect(screen.getByText("2022 – Present")).toBeInTheDocument();
   });
 
@@ -182,16 +180,16 @@ describe("ProfileImage", () => {
   });
 });
 
-// ---- DodecahedronIcon ----
-describe("DodecahedronIcon", () => {
+// ---- HexagonIcon ----
+describe("HexagonIcon", () => {
   it("renders an SVG element", () => {
-    const { container } = render(<DodecahedronIcon />);
+    const { container } = render(<HexagonIcon />);
     const svg = container.querySelector("svg");
     expect(svg).toBeInTheDocument();
   });
 
   it("applies custom className", () => {
-    const { container } = render(<DodecahedronIcon className="w-8 h-8" />);
+    const { container } = render(<HexagonIcon className="w-8 h-8" />);
     const svg = container.querySelector("svg");
     const classes = svg?.getAttribute("class") ?? "";
     expect(classes).toContain("w-8");
@@ -199,7 +197,7 @@ describe("DodecahedronIcon", () => {
   });
 
   it("renders all three path layers", () => {
-    const { container } = render(<DodecahedronIcon />);
+    const { container } = render(<HexagonIcon />);
     const paths = container.querySelectorAll("path");
     expect(paths.length).toBe(3);
   });
