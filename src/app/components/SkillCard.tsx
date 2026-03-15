@@ -11,7 +11,7 @@ export default function SkillCard({ label, icon, items }: SkillCategory) {
         {items.map((item) => (
           <span
             key={item}
-            className="rounded-full bg-rose-900 px-3 py-1 text-sm text-rose-200 border border-rose-800"
+            className="rounded-full bg-[#6b2040] px-3 py-1 text-sm text-rose-100 border border-[#8b3050]"
           >
             {item}
           </span>

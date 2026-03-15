@@ -26,7 +26,7 @@ export default function Hero({ info }: { info: PersonalInfo }) {
       <div className="mt-10 flex flex-wrap justify-center gap-4">
         <Link
           href="/experience"
-          className="rounded-lg bg-rose-700 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-rose-800"
+          className="rounded-lg bg-[#8b3050] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#a03860]"
         >
           View Experience
         </Link>
