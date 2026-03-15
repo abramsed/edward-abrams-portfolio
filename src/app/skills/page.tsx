@@ -19,7 +19,7 @@ export default async function SkillsPage() {
         A breakdown of languages, frameworks, and platforms I work with.
       </p>
 
-      <div className="mt-4 grid gap-6 sm:mt-8 sm:grid-cols-2">
+      <div className="mt-6 grid gap-6 sm:mt-8 sm:grid-cols-2">
         {skillCategories.map((cat) => (
           <SkillCard key={cat.label} {...cat} />
         ))}
