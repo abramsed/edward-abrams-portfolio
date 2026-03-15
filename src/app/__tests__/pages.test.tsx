@@ -127,7 +127,7 @@ describe("About page", () => {
   it("renders the architecture sections", () => {
     render(<AboutPage />);
     expect(screen.getByText("How This Site Is Built")).toBeInTheDocument();
-    expect(screen.getByText("App Router (Next.js 14)")).toBeInTheDocument();
+    expect(screen.getByText("App Router (Next.js 16)")).toBeInTheDocument();
     expect(screen.getByText("PostgreSQL Data Layer")).toBeInTheDocument();
     expect(screen.getByText("Drizzle ORM")).toBeInTheDocument();
     expect(screen.getByText("Tailwind CSS")).toBeInTheDocument();

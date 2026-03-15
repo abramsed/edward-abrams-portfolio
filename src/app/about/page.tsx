@@ -48,7 +48,7 @@ drizzle.config.ts               # Drizzle Kit configuration
 tailwind.config.ts              # Tailwind theme configuration`
   },
   {
-    title: "App Router (Next.js 14)",
+    title: "App Router (Next.js 16)",
     content:
       "File-system routing where each folder maps to a page. A shared layout wraps every route with navigation, a footer, and corresponding queries.",
   },

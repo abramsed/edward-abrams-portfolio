@@ -4,8 +4,8 @@ A full-stack portfolio built with React, Next.js, and PostgreSQL, showcasing ski
 
 ## Tech Stack
 
-- **React 18**
-- **Next.js 14** (App Router, Server Components)
+- **React 19**
+- **Next.js 16** (App Router, Server Components)
 - **TypeScript**
 - **Tailwind CSS**
 - **PostgreSQL** — resume data served from a normalized relational database
