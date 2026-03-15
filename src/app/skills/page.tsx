@@ -33,7 +33,7 @@ export default async function SkillsPage() {
             <li key={h.label} className="flex items-start gap-3">
               <span className="mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-rose-400" />
               <div>
-                <span className="font-semibold text-white">{h.label}:</span>{" "}
+                <span className="font-semibold text-white">{h.label}:</span>
                 <span className="text-blue-200">{h.description}</span>
               </div>
             </li>

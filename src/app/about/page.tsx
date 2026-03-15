@@ -105,12 +105,12 @@ export default function AboutPage() {
               </p>
             )}
             {s.treeCompact && (
-              <pre className="mt-4 rounded-lg border border-blue-800 bg-blue-950 p-4 text-xs text-blue-200 sm:hidden">
+              <pre className="mt-4 rounded-lg border border-blue-800 bg-blue-950 p-4 text-xs text-rose-300 sm:hidden">
                 {s.treeCompact}
               </pre>
             )}
             {s.treeFull && (
-              <pre className="mt-4 hidden rounded-lg border border-blue-800 bg-blue-950 p-4 text-sm text-blue-200 sm:block">
+              <pre className="mt-4 hidden rounded-lg border border-blue-800 bg-blue-950 p-4 text-sm text-rose-300 sm:block">
                 {s.treeFull}
               </pre>
             )}
