@@ -96,7 +96,7 @@ export default function AboutPage() {
         this portfolio.
       </p>
 
-      <div className="mt-12 space-y-12">
+      <div className="mt-6 space-y-12 sm:mt-12">
         {sections.map((s) => (
           <section key={s.title}>
             <h2 className="text-xl font-bold text-white">{s.title}</h2>
