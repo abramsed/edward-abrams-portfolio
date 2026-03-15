@@ -2,7 +2,9 @@ import { getExperiences, getEducation } from "@/lib/queries";
 import TimelineItem from "../components/TimelineItem";
 
 export const metadata = {
-  title: "Experience | Edward D. Abrams",
+  title: "Work Experience",
+  description:
+    "Edward D. Abrams' professional experience — Software Developer III with 6+ years building scalable web applications with C#, .NET, React, Next.js, and Azure.",
 };
 
 export const dynamic = "force-dynamic";

@@ -54,12 +54,12 @@ async function seed() {
   if (existingPersonal.length === 0) {
     await db.insert(personalInfo).values({
       name: "Edward D. Abrams",
-      title: "Software Developer III",
+      title: "Software Engineer",
       location: "Detroit",
       email: "abramsed17@gmail.com",
       linkedin: "https://linkedin.com/in/edward-abrams-05873299",
       summary:
-        "Accomplished fullstack engineer with 6+ years of continuous growth and leadership in software development. Designs scalable, performant web applications with intuitive, reliable user experiences.",
+        "Accomplished full stack engineer with 6+ years of continuous growth and leadership in software development. Designs scalable, performant web applications with intuitive, reliable user experiences.",
     });
     console.log("  ✓ personal_info");
   } else {

@@ -1,7 +1,9 @@
 import ProfileImage from "../components/ProfileImage";
 
 export const metadata = {
-  title: "About | Edward D. Abrams",
+  title: "About",
+  description:
+    "About Edward D. Abrams — full stack software engineer based in Detroit. Learn about the architecture and tech stack behind this portfolio site.",
 };
 
 const sections = [

@@ -17,10 +17,52 @@ const lora = Lora({
   style: ["normal", "italic"],
 });
 
+const siteUrl = "https://edward-abrams-portfolio.vercel.app";
+
 export const metadata: Metadata = {
-  title: "Edward D. Abrams | Software Engineer Portfolio",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "Edward D. Abrams | Full Stack Software Engineer",
+    template: "%s | Edward D. Abrams",
+  },
   description:
-    "Portfolio of Edward D. Abrams — Software Developer III specializing in cloud-native data architecture, public API design, and React/Next.js product development.",
+    "Portfolio of Edward D. Abrams — Full Stack Software Developer specializing in C#, .NET, TypeScript, React, Next.js, Azure, and cloud-native data architecture. Based in Detroit.",
+  keywords: [
+    "Edward Abrams",
+    "Edward D. Abrams",
+    "software engineer",
+    "full stack developer",
+    "React developer",
+    "Next.js developer",
+    ".NET developer",
+    "C# developer",
+    "TypeScript developer",
+    "Azure",
+    "cloud-native",
+    "Detroit software engineer",
+    "portfolio",
+  ],
+  authors: [{ name: "Edward D. Abrams" }],
+  creator: "Edward D. Abrams",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: siteUrl,
+    siteName: "Edward D. Abrams Portfolio",
+    title: "Edward D. Abrams | Full Stack Software Engineer",
+    description:
+      "Full Stack Software Developer specializing in C#, .NET, TypeScript, React, Next.js, Azure, and cloud-native data architecture.",
+  },
+  twitter: {
+    card: "summary",
+    title: "Edward D. Abrams | Full Stack Software Engineer",
+    description:
+      "Full Stack Software Developer specializing in C#, .NET, TypeScript, React, Next.js, Azure, and cloud-native data architecture.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
