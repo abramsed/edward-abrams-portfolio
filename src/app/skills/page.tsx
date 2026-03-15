@@ -13,20 +13,20 @@ export default async function SkillsPage() {
     getSkillHighlights(),
   ]);
   return (
-    <div className="mx-auto max-w-4xl px-6 py-10 sm:py-20">
+    <div className="mx-auto max-w-4xl px-6 py-10 sm:py-12">
       <h1 className="text-4xl font-bold tracking-tight text-white">Skills</h1>
       <p className="mt-2 text-blue-200">
         A breakdown of languages, frameworks, and platforms I work with.
       </p>
 
-      <div className="mt-8 grid gap-6 sm:mt-12 sm:grid-cols-2">
+      <div className="mt-4 grid gap-6 sm:mt-8 sm:grid-cols-2">
         {skillCategories.map((cat) => (
           <SkillCard key={cat.label} {...cat} />
         ))}
       </div>
 
       {/* Highlights */}
-      <section className="mt-10 pt-6 sm:mt-16 sm:border-t sm:border-blue-800 sm:pt-12">
+      <section className="mt-8 sm:mt-10">
         <h2 className="text-2xl font-bold text-white">Highlights</h2>
         <ul className="mt-6 space-y-4">
           {highlights.map((h) => (
