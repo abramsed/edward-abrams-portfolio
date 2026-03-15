@@ -26,7 +26,7 @@ export default async function SkillsPage() {
       </div>
 
       {/* Highlights */}
-      <section className="mt-8 sm:mt-10 sm:border-t sm:border-blue-800 sm:pt-10">
+      <section className="mt-8 border-t border-blue-800 pt-6 sm:mt-10 sm:pt-10">
         <h2 className="text-2xl font-bold text-white">Highlights</h2>
         <ul className="mt-6 space-y-4">
           {highlights.map((h) => (

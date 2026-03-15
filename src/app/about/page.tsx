@@ -87,7 +87,8 @@ export default function AboutPage() {
         shows, wrestling events, or playing games with his friends.
       </p>
       <ProfileImage />
-      <h2 className="mt-16 text-4xl font-bold tracking-tight text-white">
+      <section className="mt-8 border-t border-blue-800 pt-6 sm:mt-10 sm:pt-10">
+      <h2 className="text-4xl font-bold tracking-tight text-white">
         How This Site Is Built
       </h2>
       <p className="mt-2 text-blue-200">
@@ -117,6 +118,7 @@ export default function AboutPage() {
           </section>
         ))}
       </div>
+      </section>
     </div>
   );
 }

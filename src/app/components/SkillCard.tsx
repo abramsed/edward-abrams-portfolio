@@ -3,7 +3,7 @@ import { SkillIcon } from "./SkillIcons";
 
 export default function SkillCard({ label, icon, items }: SkillCategory) {
   return (
-    <div className="rounded-xl border border-blue-800 bg-blue-900 p-6 transition-colors hover:border-rose-400 outline-none select-none" style={{ WebkitTapHighlightColor: 'transparent', WebkitUserSelect: 'none' }}>
+    <div className="rounded-xl border border-blue-800 bg-blue-900 p-6 transition-colors sm:hover:border-rose-400">
       <div className="mb-4 flex items-center gap-3">
         <SkillIcon icon={icon} className="w-7 h-7" />
         <h3 className="text-lg font-semibold text-white">{label}</h3>
