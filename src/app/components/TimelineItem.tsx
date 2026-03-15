@@ -7,7 +7,7 @@ export default function TimelineItem({
   bullets,
 }: Experience) {
   return (
-    <div className="relative border-l-2 border-blue-700 pl-8 pb-6 sm:pb-12 last:pb-0">
+    <div className="relative border-l-2 border-blue-700 pl-8 pb-12 sm:pb-16 last:pb-0">
       {/* Hexagon marker */}
       <div className="absolute -left-[13px] -top-0.5 z-10">
         <HexagonIcon className="w-6 h-6" />
