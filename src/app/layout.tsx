@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import { Cinzel, Lora } from "next/font/google";
+import { Righteous, Lora } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
-const cinzel = Cinzel({
+const righteous = Righteous({
   subsets: ["latin"],
   variable: "--font-display",
-  weight: ["400", "700"],
+  weight: "400",
 });
 
 const lora = Lora({
@@ -31,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${cinzel.variable} ${lora.variable} antialiased bg-blue-950 text-white min-h-screen flex flex-col`}
+        className={`${righteous.variable} ${lora.variable} antialiased bg-blue-950 text-white min-h-screen flex flex-col`}
       >
         <Navbar />
         <main className="flex flex-1 flex-col">{children}</main>
