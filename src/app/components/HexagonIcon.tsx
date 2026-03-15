@@ -1,7 +1,7 @@
 export default function HexagonIcon({ className = "w-4 h-4" }: { className?: string }) {
   return (
     <svg
-      className={`inline-block align-baseline relative top-[2px] ${className}`}
+      className={`inline-block ${className}`}
       viewBox="0 0 48 48"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

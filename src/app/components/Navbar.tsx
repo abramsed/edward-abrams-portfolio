@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import HexagonIcon from "./HexagonIcon";
+import HexagonEDA from "./HexagonEDA";
 
 const links = [
   { href: "/", label: "Home" },
@@ -17,8 +17,9 @@ export default function Navbar() {
   return (
     <nav className="sticky top-0 z-50 border-b border-blue-800 bg-blue-950/90 backdrop-blur-md">
       <div className="mx-auto flex max-w-5xl items-center justify-between gap-4 px-4 py-4 sm:px-6">
-        <Link href="/" className="font-[family-name:var(--font-display)] text-xl font-bold tracking-tight text-white uppercase">
-          ED<HexagonIcon className="w-3 h-3 ml-0 mr-0.5" />A
+        <Link href="/" className="flex items-center gap-2 font-[family-name:var(--font-display)] text-xl font-bold tracking-tight text-white uppercase">
+          <HexagonEDA size={36} />
+          <span>EDA</span>
         </Link>
 
         <ul className="flex gap-3 text-sm font-medium sm:gap-6">
