@@ -5,8 +5,6 @@ export const metadata = {
   title: "Experience | Edward D. Abrams",
 };
 
-export const dynamic = "force-dynamic";
-
 export default async function ExperiencePage() {
   const [experiences, education] = await Promise.all([
     getExperiences(),

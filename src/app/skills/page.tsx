@@ -5,8 +5,6 @@ export const metadata = {
   title: "Skills | Edward D. Abrams",
 };
 
-export const dynamic = "force-dynamic";
-
 export default async function SkillsPage() {
   const [skillCategories, highlights] = await Promise.all([
     getSkillCategories(),
