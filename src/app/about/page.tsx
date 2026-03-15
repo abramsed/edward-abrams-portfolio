@@ -76,7 +76,7 @@ tailwind.config.ts              # Tailwind theme configuration`
 
 export default function AboutPage() {
   return (
-    <div className="mx-auto max-w-3xl overflow-hidden px-6 py-20">
+    <div className="mx-auto max-w-3xl overflow-hidden px-6 py-10 sm:py-20">
       <h1 className="text-4xl font-bold tracking-tight text-white">
         Behind the Code
       </h1>

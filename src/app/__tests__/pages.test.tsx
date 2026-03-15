@@ -135,8 +135,11 @@ describe("About page", () => {
     expect(screen.getByText("Tailwind CSS")).toBeInTheDocument();
   });
 
-  it("renders the project structure section", () => {
+  it("renders the project structure section with both tree versions", () => {
     render(<AboutPage />);
     expect(screen.getByText("Project Structure")).toBeInTheDocument();
+    // Both compact and full trees are rendered (CSS controls visibility)
+    const pres = document.querySelectorAll("pre");
+    expect(pres.length).toBe(2);
   });
 });

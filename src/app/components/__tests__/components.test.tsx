@@ -60,6 +60,7 @@ import TimelineItem from "../TimelineItem";
 import Footer from "../Footer";
 import Navbar from "../Navbar";
 import ProfileImage from "../ProfileImage";
+import DodecahedronIcon from "../DodecahedronIcon";
 
 // ---- Fixtures ----
 const personalInfo = {
@@ -178,6 +179,29 @@ describe("ProfileImage", () => {
     expect(img.className).toContain("opacity-100");
     const skeleton = document.querySelector(".animate-pulse");
     expect(skeleton).not.toBeInTheDocument();
+  });
+});
+
+// ---- DodecahedronIcon ----
+describe("DodecahedronIcon", () => {
+  it("renders an SVG element", () => {
+    const { container } = render(<DodecahedronIcon />);
+    const svg = container.querySelector("svg");
+    expect(svg).toBeInTheDocument();
+  });
+
+  it("applies custom className", () => {
+    const { container } = render(<DodecahedronIcon className="w-8 h-8" />);
+    const svg = container.querySelector("svg");
+    const classes = svg?.getAttribute("class") ?? "";
+    expect(classes).toContain("w-8");
+    expect(classes).toContain("h-8");
+  });
+
+  it("renders all three path layers", () => {
+    const { container } = render(<DodecahedronIcon />);
+    const paths = container.querySelectorAll("path");
+    expect(paths.length).toBe(3);
   });
 });
 
