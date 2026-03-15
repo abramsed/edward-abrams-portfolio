@@ -145,13 +145,10 @@ describe("TimelineItem", () => {
 
 // ---- Footer ----
 describe("Footer", () => {
-  it("renders the current year and tech stack", async () => {
+  it("renders the current year and copyright", async () => {
     render(await Footer());
     const year = new Date().getFullYear().toString();
     expect(screen.getByText(new RegExp(year))).toBeInTheDocument();
-    expect(screen.getByText(/Next\.js/)).toBeInTheDocument();
-    expect(screen.getByText(/TypeScript/)).toBeInTheDocument();
-    expect(screen.getByText(/PostgreSQL/)).toBeInTheDocument();
   });
 
   it("renders contact info from DB", async () => {

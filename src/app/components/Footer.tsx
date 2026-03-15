@@ -25,8 +25,7 @@ export default async function Footer() {
           </a>
         </div>
         <p>
-          &copy; {new Date().getFullYear()} Edward D. Abrams. Built with{" "}
-          Next.js, TypeScript, Tailwind CSS, and PostgreSQL.
+          &copy; {new Date().getFullYear()} Edward D. Abrams
         </p>
       </div>
     </footer>
