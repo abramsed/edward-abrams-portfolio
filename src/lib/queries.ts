@@ -89,7 +89,7 @@ export async function getSkillCategories(): Promise<SkillCategory[]> {
     .from(skillCategories)
     .orderBy(asc(skillCategories.sortOrder));
 
-  const items = await db.select().from(skillItems);
+  const items = await db.select().from(skillItems).orderBy(asc(skillItems.id));
 
   const itemMap = new Map<number, string[]>();
   for (const i of items) {
