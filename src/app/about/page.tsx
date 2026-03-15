@@ -65,12 +65,12 @@ tailwind.config.ts              # Tailwind theme configuration`
   {
     title: "Components",
     content:
-      "Each UI component has a single job — navigation, hero, skill cards, timeline entries, and so on. Props are typed with the same interfaces used by the query layer.",
+      "Each UI component has a single job; navigation, hero, skill cards, timeline entries, and so on. Props are typed with the same interfaces used by the query layer.",
   },
   {
     title: "Tailwind CSS",
     content:
-        "Utility-first styling with a deep navy blue palette, blue tones for surfaces and text, and maroon rose accents drawn from a personal photo. Responsive prefixes handle mobile-first breakpoints."
+      "Utility-first styling with a deep navy blue palette, blue tones for surfaces and text, and maroon rose accents drawn from a personal photo. Responsive prefixes handle mobile-first breakpoints.",
   },
 ];
 
