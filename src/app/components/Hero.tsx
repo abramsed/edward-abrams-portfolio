@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { PersonalInfo } from "@/lib/queries";
+import DodecahedronIcon from "./DodecahedronIcon";
 
 export default function Hero({ info }: { info: PersonalInfo }) {
   return (
@@ -8,7 +9,15 @@ export default function Hero({ info }: { info: PersonalInfo }) {
         {info.title}
       </p>
       <h1 className="text-5xl font-bold tracking-tight text-white sm:text-6xl">
-        {info.name}
+        {info.name.split(".").length > 1 ? (
+          <>
+            {info.name.split(".")[0]}
+            <DodecahedronIcon className="w-4 h-4 sm:w-5 sm:h-5 mx-0.5" />
+            {info.name.split(".").slice(1).join(".")}
+          </>
+        ) : (
+          info.name
+        )}
       </h1>
       <p className="mt-6 max-w-2xl text-lg leading-relaxed text-blue-200">
         {info.summary}
