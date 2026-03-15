@@ -1,8 +1,5 @@
--- Clean slate
-DROP TABLE IF EXISTS skill_highlights, skill_items, skill_categories, experience_bullets, experiences, education, personal_info CASCADE;
-
 -- Schema
-CREATE TABLE personal_info (
+CREATE TABLE IF NOT EXISTS personal_info (
   id SERIAL PRIMARY KEY,
   name TEXT NOT NULL,
   title TEXT NOT NULL,
@@ -12,7 +9,7 @@ CREATE TABLE personal_info (
   summary TEXT NOT NULL
 );
 
-CREATE TABLE experiences (
+CREATE TABLE IF NOT EXISTS experiences (
   id SERIAL PRIMARY KEY,
   title TEXT NOT NULL,
   product TEXT NOT NULL,
@@ -20,34 +17,34 @@ CREATE TABLE experiences (
   sort_order INT NOT NULL
 );
 
-CREATE TABLE experience_bullets (
+CREATE TABLE IF NOT EXISTS experience_bullets (
   id SERIAL PRIMARY KEY,
   experience_id INT NOT NULL REFERENCES experiences(id),
   bullet TEXT NOT NULL,
   sort_order INT NOT NULL
 );
 
-CREATE TABLE skill_categories (
+CREATE TABLE IF NOT EXISTS skill_categories (
   id SERIAL PRIMARY KEY,
   label TEXT NOT NULL,
   icon TEXT NOT NULL,
   sort_order INT NOT NULL
 );
 
-CREATE TABLE skill_items (
+CREATE TABLE IF NOT EXISTS skill_items (
   id SERIAL PRIMARY KEY,
   category_id INT NOT NULL REFERENCES skill_categories(id),
   item TEXT NOT NULL
 );
 
-CREATE TABLE skill_highlights (
+CREATE TABLE IF NOT EXISTS skill_highlights (
   id SERIAL PRIMARY KEY,
   label TEXT NOT NULL,
   description TEXT NOT NULL,
   sort_order INT NOT NULL
 );
 
-CREATE TABLE education (
+CREATE TABLE IF NOT EXISTS education (
   id SERIAL PRIMARY KEY,
   school TEXT NOT NULL,
   degree TEXT NOT NULL,
@@ -56,24 +53,25 @@ CREATE TABLE education (
 );
 
 -- Seed: personal_info
-INSERT INTO personal_info (name, title, location, email, linkedin, summary) VALUES (
-  'Edward D. Abrams',
-  'Software Developer III',
-  'Detroit',
-  'abramsed17@gmail.com',
-  'https://linkedin.com/in/edward-abrams-05873299',
-  'Accomplished fullstack engineer with 6+ years of continuous growth and leadership in software development. Designs scalable, performant web applications with intuitive, reliable user experiences.'
-);
+INSERT INTO personal_info (name, title, location, email, linkedin, summary)
+SELECT 'Edward D. Abrams', 'Software Developer III', 'Detroit', 'abramsed17@gmail.com',
+       'https://linkedin.com/in/edward-abrams-05873299',
+       'Accomplished fullstack engineer with 6+ years of continuous growth and leadership in software development. Designs scalable, performant web applications with intuitive, reliable user experiences.'
+WHERE NOT EXISTS (SELECT 1 FROM personal_info LIMIT 1);
 
 -- Seed: experiences
-INSERT INTO experiences (title, product, period, sort_order) VALUES
+INSERT INTO experiences (title, product, period, sort_order)
+SELECT * FROM (VALUES
   ('Software Developer III', 'Brand 360', 'July 2024 – Present', 1),
   ('Team Leader, Product Development', 'UWM Portal', 'June 2023 – July 2024', 2),
   ('Software Developer II', 'Edge', 'Sept 2021 – June 2023', 3),
-  ('Trainee → Software Developer I', 'Bolt', 'Sept 2019 – Sept 2021', 4);
+  ('Trainee → Software Developer I', 'Bolt', 'Sept 2019 – Sept 2021', 4)
+) AS v(title, product, period, sort_order)
+WHERE NOT EXISTS (SELECT 1 FROM experiences LIMIT 1);
 
 -- Seed: experience_bullets
-INSERT INTO experience_bullets (experience_id, bullet, sort_order) VALUES
+INSERT INTO experience_bullets (experience_id, bullet, sort_order)
+SELECT * FROM (VALUES
   (1, 'Frontend development lead for a CRM and content creation platform built with React and Next.js', 1),
   (1, 'Established SAML and OAuth connectivity for the Canva API, leveraging PKCE flow with SHA-256 encoding and verification', 2),
   (1, 'Scoped contexts for persistent state management within defined boundaries to reduce network traffic and optimize memory consumption', 3),
@@ -85,31 +83,39 @@ INSERT INTO experience_bullets (experience_id, bullet, sort_order) VALUES
   (3, 'Developed eventually consistent data replication pipelines with Apache Spark to maintain legacy reports', 3),
   (4, 'Earned MVP recognition during the developer training program for peer mentorship and technical merit', 1),
   (4, 'Delivered regulatory compliance updates ahead of competitors using a stangler pattern to route loans based on submission date', 2),
-  (4, 'Led development of RESTful income calculation APIs, eliminating manual underwriting processes performed in Excel macros', 3);
+  (4, 'Led development of RESTful income calculation APIs, eliminating manual underwriting processes performed in Excel macros', 3)
+) AS v(experience_id, bullet, sort_order)
+WHERE NOT EXISTS (SELECT 1 FROM experience_bullets LIMIT 1);
 
 -- Seed: skill_categories
-INSERT INTO skill_categories (label, icon, sort_order) VALUES
+INSERT INTO skill_categories (label, icon, sort_order)
+SELECT * FROM (VALUES
   ('Languages', '💻', 1),
   ('Frameworks', '⚙️', 2),
-  ('Tools & Data', '🛠️', 3);
+  ('Tools & Data', '🛠️', 3)
+) AS v(label, icon, sort_order)
+WHERE NOT EXISTS (SELECT 1 FROM skill_categories LIMIT 1);
 
 -- Seed: skill_items
-INSERT INTO skill_items (category_id, item) VALUES
+INSERT INTO skill_items (category_id, item)
+SELECT * FROM (VALUES
   (1, 'C#'), (1, 'TypeScript'), (1, 'Python'), (1, 'T-SQL'),
   (2, '.NET'), (2, 'React'), (2, 'Next.js'), (2, 'Svelte'),
-  (3, 'Azure'), (3, 'GCP'), (3, 'MongoDB'), (3, 'PostgreSQL'), (3, 'Kafka'), (3, 'Redis'), (3, 'Docker'), (3, 'Terraform');
+  (3, 'Azure'), (3, 'GCP'), (3, 'MongoDB'), (3, 'PostgreSQL'), (3, 'Kafka'), (3, 'Redis'), (3, 'Docker'), (3, 'Terraform')
+) AS v(category_id, item)
+WHERE NOT EXISTS (SELECT 1 FROM skill_items LIMIT 1);
 
 -- Seed: skill_highlights
-INSERT INTO skill_highlights (label, description, sort_order) VALUES
+INSERT INTO skill_highlights (label, description, sort_order)
+SELECT * FROM (VALUES
   ('Cloud-Native Data', 'Migrated a terabyte of SQL Server data to Azure Cosmos DB and built eventually consistent replication pipelines with Apache Spark.', 1),
   ('API Security & Identity', 'Established SAML and OAuth connectivity for the Canva API, leveraging PKCE flow with SHA-256 encoding and verification.', 2),
   ('React / Next.js', 'Frontend development lead for a CRM platform using React and Next.js; combined server-side fetching with scoped client contexts and caching to reduce network traffic and optimize memory.', 3),
-  ('Public .NET APIs', 'Launched the company''s first public-facing .NET APIs, opening the platform to external partners and defining connectivity standards.', 4);
+  ('Public .NET APIs', 'Launched the company''s first public-facing .NET APIs, opening the platform to external partners and defining connectivity standards.', 4)
+) AS v(label, description, sort_order)
+WHERE NOT EXISTS (SELECT 1 FROM skill_highlights LIMIT 1);
 
 -- Seed: education
-INSERT INTO education (school, degree, level, date) VALUES (
-  'Michigan State University',
-  'Elementary Education',
-  'Bachelor of Arts',
-  'May 2015'
-);
+INSERT INTO education (school, degree, level, date)
+SELECT 'Michigan State University', 'Elementary Education', 'Bachelor of Arts', 'May 2015'
+WHERE NOT EXISTS (SELECT 1 FROM education LIMIT 1);
