@@ -9,21 +9,26 @@ A full-stack portfolio built with React, Next.js, and PostgreSQL, showcasing ski
 - **TypeScript**
 - **Tailwind CSS**
 - **PostgreSQL** — resume data served from a normalized relational database
-- **Docker** — multi-stage build; Docker Compose orchestrates the app and database
+- **Drizzle ORM** — type-safe schema definitions and migrations
+- **Vercel** — hosting and managed Postgres (via Vercel Postgres)
 
 ## Running Locally
 
-### With Docker (recommended)
+The recommended workflow uses the Vercel CLI so your local environment connects to the same Vercel-hosted Postgres as production — no separate local database needed.
 
 ```bash
-docker compose up --build
+npm install -g vercel
+vercel link              # connect this repo to your Vercel project (one-time)
+npm install
+npm run vercel:setup     # pulls env vars from Vercel + migrates + seeds
+npm run vercel:dev       # start local dev server at http://localhost:3000
 ```
 
-The database is seeded automatically on first launch via `db/init.sql`.
+Open [http://localhost:3000](http://localhost:3000).
 
-### Without Docker
+### Using a local database instead
 
-Requires a local PostgreSQL instance. Set `DATABASE_URL` in a `.env.local` file:
+If you want local dev fully isolated from the live database (e.g. when testing schema changes), install Postgres locally ([Postgres.app](https://postgresapp.com/) or `brew install postgresql`) and set a local connection string in `.env.local`:
 
 ```
 DATABASE_URL=postgresql://<user>:<password>@localhost:5432/<db>
@@ -33,10 +38,26 @@ Then:
 
 ```bash
 npm install
+npm run db:setup
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+## Database Scripts
+
+| Command | Description |
+|---|---|
+| `npm run db:generate` | Generate a new migration from schema changes |
+| `npm run db:migrate` | Apply pending migrations |
+| `npm run db:seed` | Seed the database with resume data |
+| `npm run db:setup` | Migrate + seed (first-time setup) |
+
+Migrations run automatically on every Vercel deployment via the `build` script.
+
+## Deploying to Vercel
+
+1. Create a Postgres database in the [Vercel dashboard](https://vercel.com/dashboard) and link it to your project.
+2. Vercel will automatically inject `POSTGRES_URL` into your environment.
+3. On every deploy, `npm run build` runs `db:migrate` before building, keeping the schema up to date.
 
 ## Pages
 
@@ -58,11 +79,12 @@ src/
 │   ├── components/             # Shared UI components
 │   └── globals.css             # Global styles + Tailwind directives
 └── lib/
-    ├── db.ts                   # PostgreSQL connection pool
+    ├── db.ts                   # Drizzle client (wraps pg Pool)
+    ├── schema.ts               # Drizzle table definitions
     └── queries.ts              # Typed query functions
 db/
-└── init.sql                    # Schema + seed data
-Dockerfile                      # Multi-stage production build
-docker-compose.yml              # App + Postgres services
+├── migrations/                 # Auto-generated SQL migrations (drizzle-kit)
+└── seed.ts                     # Idempotent seed script
+drizzle.config.ts               # Drizzle Kit configuration
 tailwind.config.ts              # Tailwind theme configuration
 ```
