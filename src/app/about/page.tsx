@@ -1,7 +1,9 @@
 import ProfileImage from "../components/ProfileImage";
 
 export const metadata = {
-  title: "About | Edward D. Abrams",
+  title: "About",
+  description:
+    "About Edward D. Abrams — Full Stack Developer based in Metro Detroit specializing in React, Next.js, .NET, and cloud-native development.",
 };
 
 const sections = [

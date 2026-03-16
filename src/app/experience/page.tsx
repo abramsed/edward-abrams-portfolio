@@ -2,7 +2,9 @@ import { getExperiences, getEducation } from "@/lib/queries";
 import TimelineItem from "../components/TimelineItem";
 
 export const metadata = {
-  title: "Experience | Edward D. Abrams",
+  title: "Experience",
+  description:
+    "Work experience and education of Edward D. Abrams — Full Stack Developer with expertise in React, Next.js, .NET, cloud-native architecture, and API design.",
 };
 
 export default async function ExperiencePage() {

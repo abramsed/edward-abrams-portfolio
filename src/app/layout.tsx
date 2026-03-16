@@ -17,10 +17,52 @@ const lora = Lora({
   style: ["normal", "italic"],
 });
 
+const siteUrl = "https://tedbramsy.com";
+
 export const metadata: Metadata = {
-  title: "Edward D. Abrams | Software Engineer Portfolio",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "Edward D. Abrams | Full Stack Developer",
+    template: "%s | Edward D. Abrams",
+  },
   description:
-    "Portfolio of Edward D. Abrams — Software Developer III specializing in cloud-native data architecture, public API design, and React/Next.js product development.",
+    "Portfolio of Edward D. Abrams — Full Stack Developer specializing in React, Next.js, TypeScript, Node.js, .NET, cloud-native data architecture, and public API design.",
+  keywords: [
+    "Edward Abrams",
+    "full stack developer",
+    "software engineer",
+    "React developer",
+    "Next.js developer",
+    "TypeScript",
+    "Node.js",
+    ".NET developer",
+    "MongoDB",
+    "cloud-native",
+    "API design",
+    "portfolio",
+    "Metro Detroit",
+  ],
+  authors: [{ name: "Edward D. Abrams" }],
+  creator: "Edward D. Abrams",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: siteUrl,
+    siteName: "Edward D. Abrams — Full Stack Developer",
+    title: "Edward D. Abrams | Full Stack Developer",
+    description:
+      "Full Stack Developer specializing in React, Next.js, TypeScript, Node.js, .NET, cloud-native data architecture, and public API design.",
+  },
+  twitter: {
+    card: "summary",
+    title: "Edward D. Abrams | Full Stack Developer",
+    description:
+      "Full Stack Developer specializing in React, Next.js, TypeScript, Node.js, .NET, cloud-native data architecture, and public API design.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({

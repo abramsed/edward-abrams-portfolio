@@ -2,7 +2,9 @@ import { getSkillCategories, getSkillHighlights } from "@/lib/queries";
 import SkillCard from "../components/SkillCard";
 
 export const metadata = {
-  title: "Skills | Edward D. Abrams",
+  title: "Skills",
+  description:
+    "Technical skills of Edward D. Abrams — React, Next.js, TypeScript, Node.js, .NET, PostgreSQL, cloud platforms, and more.",
 };
 
 export default async function SkillsPage() {
