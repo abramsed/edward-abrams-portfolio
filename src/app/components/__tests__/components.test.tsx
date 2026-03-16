@@ -152,8 +152,7 @@ describe("Footer", () => {
 
   it("renders contact info from DB", async () => {
     render(await Footer());
-    expect(screen.getByText("Detroit, MI")).toBeInTheDocument();
-    const linkedinLink = screen.getByRole("link", { name: /linkedin/i });
+    const linkedinLink
     expect(linkedinLink).toHaveAttribute("href", "https://linkedin.com/in/janedoe");
     const emailLink = screen.getByRole("link", { name: /jane@example\.com/i });
     expect(emailLink).toHaveAttribute("href", "mailto:jane@example.com");

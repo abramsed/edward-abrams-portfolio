@@ -6,8 +6,6 @@ export default async function Footer() {
     <footer className="border-t border-blue-800 py-4 text-center text-sm text-blue-400 sm:py-6">
       <div className="mx-auto max-w-5xl px-6">
         <div className="mb-2 flex flex-wrap justify-center gap-4 sm:mb-4">
-          <span>{info.location}</span>
-          <span>•</span>
           <a
             href={info.linkedin}
             target="_blank"
