@@ -56,8 +56,8 @@ async function seed() {
       name: "Edward D. Abrams",
       title: "Software Engineer",
       location: "Detroit",
-      email: "abramsed17@gmail.com",
-      linkedin: "https://linkedin.com/in/edward-abrams-05873299",
+      email: "eabrams@tedbramsy.com",
+      linkedin: "https://www.linkedin.com/in/tedbramsy",
       summary:
         "Accomplished full stack engineer with 6+ years of continuous growth and leadership in software development. Designs scalable, performant web applications with intuitive, reliable user experiences.",
     });
