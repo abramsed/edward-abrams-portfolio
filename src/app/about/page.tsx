@@ -62,7 +62,7 @@ tailwind.config.ts              # Tailwind theme configuration`
   {
     title: "Tailwind CSS",
     content:
-      "The color palette is comprised of hues from the bio photo. Prefixes are used to set breakpoints that respond to window dimensions.",
+      "The color palette is inspired by hues from the bio photo. Prefixes are used to set breakpoints that respond to window dimensions.",
   },
   {
     title: "Drizzle ORM",
