@@ -7,15 +7,6 @@ export default async function Footer() {
       <div className="mx-auto max-w-5xl px-6">
         <div className="mb-2 flex flex-wrap justify-center gap-4 sm:mb-4">
           <a
-            href={info.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="transition-colors hover:text-rose-400"
-          >
-            LinkedIn
-          </a>
-          <span>•</span>
-          <a
             href={`mailto:${info.email}`}
             className="transition-colors hover:text-rose-400"
           >
