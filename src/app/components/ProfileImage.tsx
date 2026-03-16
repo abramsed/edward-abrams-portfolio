@@ -8,9 +8,11 @@ export default function ProfileImage() {
 
   return (
     <div className="relative mt-8 w-full max-w-[400px] aspect-square">
-      {!loaded && (
-        <div className="absolute inset-0 rounded-xl bg-blue-900 animate-pulse" />
-      )}
+      <div
+        className={`absolute inset-0 rounded-xl bg-blue-900 transition-opacity duration-700 ${
+          loaded ? "opacity-0" : "animate-pulse"
+        }`}
+      />
       <Image
         src="/edward-abrams.jpeg"
         alt="Edward D. Abrams"

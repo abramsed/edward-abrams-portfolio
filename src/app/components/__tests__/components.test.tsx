@@ -166,17 +166,20 @@ describe("ProfileImage", () => {
     render(<ProfileImage />);
     const img = screen.getByRole("img", { name: /edward d. abrams/i });
     expect(img.className).toContain("opacity-0");
-    const skeleton = document.querySelector(".animate-pulse");
-    expect(skeleton).toBeInTheDocument();
+    const bg = document.querySelector(".bg-blue-900");
+    expect(bg).toBeInTheDocument();
+    expect(bg?.className).toContain("animate-pulse");
   });
 
-  it("shows image and removes skeleton after load", () => {
+  it("shows image and fades out background after load", () => {
     render(<ProfileImage />);
     const img = screen.getByRole("img", { name: /edward d. abrams/i });
     fireEvent.load(img);
     expect(img.className).toContain("opacity-100");
-    const skeleton = document.querySelector(".animate-pulse");
-    expect(skeleton).not.toBeInTheDocument();
+    const bg = document.querySelector(".bg-blue-900");
+    expect(bg).toBeInTheDocument();
+    expect(bg?.className).toContain("opacity-0");
+    expect(bg?.className).not.toContain("animate-pulse");
   });
 });
 
