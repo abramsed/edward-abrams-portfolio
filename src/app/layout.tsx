@@ -21,6 +21,9 @@ export const metadata: Metadata = {
   title: "Edward D. Abrams | Software Engineer Portfolio",
   description:
     "Portfolio of Edward D. Abrams — Software Developer III specializing in cloud-native data architecture, public API design, and React/Next.js product development.",
+  verification: {
+    google: "3DjXZrvH4LoXKrNU8EM4cFsK057Mxp0JX04jEIK7crU",
+  },
 };
 
 export default function RootLayout({

@@ -2,24 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #0a0a0a;
-  --foreground: #ededed;
-}
-
 body {
-  color: var(--foreground);
-  background: var(--background);
   font-family: var(--font-body), Georgia, serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display), system-ui, sans-serif;
   text-transform: uppercase;
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
 }
