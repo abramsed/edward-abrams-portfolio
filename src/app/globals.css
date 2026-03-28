@@ -6,6 +6,21 @@ body {
   font-family: var(--font-body), Georgia, serif;
 }
 
+.btn-group {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 0.75rem !important;
+}
+
+@media (min-width: 640px) {
+  .btn-group {
+    flex-direction: row !important;
+    justify-content: center !important;
+    gap: 1rem !important;
+  }
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display), system-ui, sans-serif;
   text-transform: uppercase;
