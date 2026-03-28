@@ -12,9 +12,10 @@ export default function Icon() {
   return new ImageResponse(
     (
       <svg width="64" height="64" viewBox="0 0 64 64">
-        <path d={spokes} stroke="#60a5fa" strokeWidth="1.5" fill="none" />
-        <path d={outer} stroke="#ffffff" strokeWidth="2.5" strokeLinejoin="round" fill="none" />
-        <path d={inner} stroke="#fb7185" strokeWidth="2.5" strokeLinejoin="round" fill="none" />
+        <rect width="64" height="64" fill="#111827" />
+        <path d={spokes} stroke="#22c55e" strokeWidth="1.5" fill="none" />
+        <path d={outer} stroke="#facc15" strokeWidth="2.5" strokeLinejoin="round" fill="none" />
+        <path d={inner} stroke="#ec4899" strokeWidth="2.5" strokeLinejoin="round" fill="none" />
       </svg>
     ),
     { ...size }

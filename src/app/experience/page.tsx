@@ -14,29 +14,35 @@ export default async function ExperiencePage() {
   ]);
 
   return (
-    <div className="mx-auto max-w-3xl px-6 py-6 sm:py-12">
-      <h1 className="text-4xl font-bold tracking-tight text-white">
-        Work Experience
-      </h1>
+    <div className="mx-auto max-w-3xl px-6 py-4 sm:py-8">
 
-      <div className="mt-6 sm:mt-12">
+      {/* Work Experience heading card */}
+      <div className="rounded-xl border border-gray-200 p-6 shadow-sm" style={{ backgroundColor: 'rgba(252,251,248,0.92)' }}>
+        <h1 className="text-4xl font-bold tracking-tight text-gray-900">
+          Work Experience
+        </h1>
+      </div>
+
+      {/* Individual experience cards */}
+      <div className="mt-4 space-y-4">
         {experiences.map((exp) => (
           <TimelineItem key={exp.title} {...exp} />
         ))}
       </div>
 
-      {/* Education */}
-      <section className="mt-8 border-t border-blue-800 pt-6 sm:mt-16 sm:pt-12">
-        <h2 className="text-2xl font-bold text-white">Education</h2>
+      {/* Education card */}
+      <section className="mt-4 rounded-xl border border-gray-200 p-6 shadow-sm sm:mt-6" style={{ backgroundColor: 'rgba(252,251,248,0.92)' }}>
+        <h2 className="text-2xl font-bold text-gray-900">Education</h2>
         <div className="mt-4">
-          <h3 className="text-lg font-semibold text-white">
+          <h3 className="text-lg font-semibold text-gray-900">
             {education.school}
           </h3>
-          <p className="text-sm text-blue-300">
+          <p className="text-sm text-gray-700">
             {education.level}, {education.degree} &mdash; {education.date}
           </p>
         </div>
       </section>
+
     </div>
   );
 }

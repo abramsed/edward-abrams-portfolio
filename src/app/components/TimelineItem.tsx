@@ -7,22 +7,23 @@ export default function TimelineItem({
   bullets,
 }: Experience) {
   return (
-    <div className="relative border-l-2 border-blue-700 pl-8 pb-12 sm:pb-16 last:pb-0">
-      {/* Hexagon marker */}
-      <div className="absolute -left-[13px] -top-0.5 z-10">
-        <HexagonIcon className="w-6 h-6" />
+    <div className="rounded-xl border border-gray-200 p-6 shadow-sm" style={{ backgroundColor: 'rgba(252,251,248,0.92)' }}>
+      <div className="flex items-center gap-2">
+        <HexagonIcon className="w-5 h-5 flex-shrink-0" />
+        <p className="text-sm font-medium text-gray-700">{period}</p>
       </div>
-
-      <p className="text-sm font-medium text-rose-400">{period}</p>
-      <h3 className="mt-1 text-xl font-bold text-white">{title}</h3>
+      <h3 className="mt-2 text-xl font-bold text-gray-900">{title}</h3>
 
       <ul className="mt-4 space-y-2">
         {bullets.map((b, i) => (
           <li
             key={i}
-            className="flex items-start gap-2 text-sm leading-relaxed text-blue-200"
+            className="flex items-start gap-2 text-sm leading-relaxed text-gray-700"
           >
-            <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-blue-500" />
+            <span
+              className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full"
+              style={{ backgroundColor: '#22c55e' }}
+            />
             {b}
           </li>
         ))}

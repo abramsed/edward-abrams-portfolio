@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { Righteous, Lora } from "next/font/google";
+import { Righteous, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import BackgroundLines from "./components/BackgroundLines";
 
 const righteous = Righteous({
   subsets: ["latin"],
@@ -10,11 +11,10 @@ const righteous = Righteous({
   weight: "400",
 });
 
-const lora = Lora({
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   variable: "--font-body",
   weight: ["400", "500", "700"],
-  style: ["normal", "italic"],
 });
 
 const siteUrl = "https://tedbramsy.com";
@@ -73,8 +73,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${righteous.variable} ${lora.variable} antialiased bg-blue-950 text-white min-h-screen flex flex-col`}
+className={`${righteous.variable} ${spaceGrotesk.variable} antialiased text-gray-900 min-h-screen flex flex-col`}
+        style={{ backgroundColor: '#fcfbf8' }}
       >
+        <BackgroundLines />
         <Navbar />
         <main className="flex flex-1 flex-col">{children}</main>
         <Footer />

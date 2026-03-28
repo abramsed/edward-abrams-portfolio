@@ -1,18 +1,32 @@
+"use client";
+import { useState } from "react";
 import { SkillCategory } from "@/lib/queries";
 import { SkillIcon } from "./SkillIcons";
 
-export default function SkillCard({ label, icon, items }: SkillCategory) {
+const hoverColors = ['#22c55e', '#22c55e', '#22c55e'];
+
+export default function SkillCard({ label, icon, items, index = 0 }: SkillCategory & { index?: number }) {
+  const [hovered, setHovered] = useState(false);
   return (
-    <div className="rounded-xl border border-blue-800 bg-blue-900 p-6 transition-colors sm:hover:border-rose-400">
+    <div
+      className="rounded-xl border p-6"
+      style={{
+        backgroundColor: 'rgba(252,251,248,0.92)',
+        borderColor: hovered ? hoverColors[index % 3] : '#e5e7eb',
+        transition: 'border-color 0.15s',
+      }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
       <div className="mb-4 flex items-center gap-3">
         <SkillIcon icon={icon} className="w-7 h-7" />
-        <h3 className="text-lg font-semibold text-white">{label}</h3>
+        <h3 className="text-lg font-semibold text-gray-900">{label}</h3>
       </div>
       <div className="flex flex-wrap gap-2">
         {items.map((item) => (
           <span
             key={item}
-            className="rounded-full bg-[#6b2040] px-3 py-1 text-sm text-rose-100 border border-[#8b3050]"
+            className="rounded-full bg-yellow-50 px-3 py-1 text-sm text-yellow-700 border border-yellow-400"
           >
             {item}
           </span>

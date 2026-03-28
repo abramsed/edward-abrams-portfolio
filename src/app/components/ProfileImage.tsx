@@ -9,7 +9,7 @@ export default function ProfileImage() {
   return (
     <div className="relative mt-8 w-full max-w-[400px] aspect-square">
       <div
-        className={`absolute inset-0 rounded-xl bg-blue-900 transition-opacity duration-700 ${
+        className={`absolute inset-0 rounded-xl bg-gray-300 transition-opacity duration-700 ${
           loaded ? "opacity-0" : "animate-pulse"
         }`}
       />

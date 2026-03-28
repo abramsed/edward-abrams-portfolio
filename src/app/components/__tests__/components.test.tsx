@@ -61,6 +61,10 @@ import Footer from "../Footer";
 import Navbar from "../Navbar";
 import ProfileImage from "../ProfileImage";
 import HexagonIcon from "../HexagonIcon";
+import YellowButton from "../YellowButton";
+import GreenButton from "../GreenButton";
+import EmailLink from "../EmailLink";
+import BackgroundLines from "../BackgroundLines";
 
 // ---- Fixtures ----
 const personalInfo = {
@@ -123,6 +127,16 @@ describe("SkillCard", () => {
     expect(screen.getByText("TypeScript")).toBeInTheDocument();
     expect(screen.getByText("Tailwind CSS")).toBeInTheDocument();
   });
+
+  it("applies green hover border on mouseenter and resets on mouseleave", () => {
+    const { container } = render(<SkillCard {...skillCategory} index={0} />);
+    const card = container.firstChild as HTMLElement;
+    expect(card).toHaveStyle({ borderColor: '#e5e7eb' });
+    fireEvent.mouseEnter(card);
+    expect(card).toHaveStyle({ borderColor: '#22c55e' });
+    fireEvent.mouseLeave(card);
+    expect(card).toHaveStyle({ borderColor: '#e5e7eb' });
+  });
 });
 
 // ---- TimelineItem ----
@@ -163,7 +177,7 @@ describe("ProfileImage", () => {
     render(<ProfileImage />);
     const img = screen.getByRole("img", { name: /edward d. abrams/i });
     expect(img.className).toContain("opacity-0");
-    const bg = document.querySelector(".bg-blue-900");
+    const bg = document.querySelector(".bg-gray-300");
     expect(bg).toBeInTheDocument();
     expect(bg?.className).toContain("animate-pulse");
   });
@@ -173,7 +187,7 @@ describe("ProfileImage", () => {
     const img = screen.getByRole("img", { name: /edward d. abrams/i });
     fireEvent.load(img);
     expect(img.className).toContain("opacity-100");
-    const bg = document.querySelector(".bg-blue-900");
+    const bg = document.querySelector(".bg-gray-300");
     expect(bg).toBeInTheDocument();
     expect(bg?.className).toContain("opacity-0");
     expect(bg?.className).not.toContain("animate-pulse");
@@ -196,10 +210,92 @@ describe("HexagonIcon", () => {
     expect(classes).toContain("h-8");
   });
 
-  it("renders all three path layers", () => {
+  it("renders two ring paths and a center dot", () => {
     const { container } = render(<HexagonIcon />);
     const paths = container.querySelectorAll("path");
-    expect(paths.length).toBe(3);
+    expect(paths.length).toBe(2); // outer ring (yellow) + inner ring (pink)
+    const circles = container.querySelectorAll("circle");
+    expect(circles.length).toBe(1); // center dot (green)
+  });
+});
+
+// ---- YellowButton ----
+describe("YellowButton", () => {
+  it("renders a link with the correct href", () => {
+    render(<YellowButton href="/experience">View Experience</YellowButton>);
+    const link = screen.getByRole("link", { name: /view experience/i });
+    expect(link).toHaveAttribute("href", "/experience");
+  });
+
+  it("shows yellow background at rest and fills on hover", () => {
+    render(<YellowButton href="/experience">View Experience</YellowButton>);
+    const link = screen.getByRole("link", { name: /view experience/i });
+    expect(link).toHaveStyle({ backgroundColor: '#fefce8' });
+    fireEvent.mouseEnter(link);
+    expect(link).toHaveStyle({ backgroundColor: '#facc15' });
+    fireEvent.mouseLeave(link);
+    expect(link).toHaveStyle({ backgroundColor: '#fefce8' });
+  });
+});
+
+// ---- GreenButton ----
+describe("GreenButton", () => {
+  it("renders a link with the correct href", () => {
+    render(<GreenButton href="/skills">View Skills</GreenButton>);
+    const link = screen.getByRole("link", { name: /view skills/i });
+    expect(link).toHaveAttribute("href", "/skills");
+  });
+
+  it("shows light green at rest and fills on hover", () => {
+    render(<GreenButton href="/skills">View Skills</GreenButton>);
+    const link = screen.getByRole("link", { name: /view skills/i });
+    expect(link).toHaveStyle({ backgroundColor: '#f0fdf4' });
+    fireEvent.mouseEnter(link);
+    expect(link).toHaveStyle({ backgroundColor: '#16a34a' });
+    fireEvent.mouseLeave(link);
+    expect(link).toHaveStyle({ backgroundColor: '#f0fdf4' });
+  });
+});
+
+// ---- EmailLink ----
+describe("EmailLink", () => {
+  it("renders a mailto link", () => {
+    render(<EmailLink email="test@example.com" />);
+    const link = screen.getByRole("link", { name: /test@example\.com/i });
+    expect(link).toHaveAttribute("href", "mailto:test@example.com");
+  });
+
+  it("turns pink on hover and resets on mouseleave", () => {
+    render(<EmailLink email="test@example.com" />);
+    const link = screen.getByRole("link", { name: /test@example\.com/i });
+    fireEvent.mouseEnter(link);
+    expect(link).toHaveStyle({ color: '#ec4899' });
+    fireEvent.mouseLeave(link);
+    expect(link).not.toHaveStyle({ color: '#ec4899' });
+  });
+});
+
+// ---- BackgroundLines ----
+describe("BackgroundLines", () => {
+  it("renders a fixed container with an SVG", () => {
+    const { container } = render(<BackgroundLines />);
+    const svg = container.querySelector("svg");
+    expect(svg).toBeInTheDocument();
+  });
+
+  it("renders exactly three polylines", () => {
+    const { container } = render(<BackgroundLines />);
+    const polylines = container.querySelectorAll("polyline");
+    expect(polylines.length).toBe(3);
+  });
+
+  it("uses green, pink, and yellow strokes", () => {
+    const { container } = render(<BackgroundLines />);
+    const polylines = container.querySelectorAll("polyline");
+    const strokes = Array.from(polylines).map(p => p.getAttribute("stroke"));
+    expect(strokes).toContain("rgba(74,222,128,0.65)");
+    expect(strokes).toContain("rgba(244,114,182,0.60)");
+    expect(strokes).toContain("rgba(250,204,21,0.60)");
   });
 });
 
@@ -226,11 +322,11 @@ describe("Navbar", () => {
 
   it("highlights the active link", () => {
     render(<Navbar />);
-    // pathname is mocked to "/" so Home should be active (rose-400)
+    // pathname is mocked to "/" so Home should be active (pink #ec4899)
     const homeLink = screen.getByRole("link", { name: /home/i });
-    expect(homeLink.className).toContain("text-rose-400");
+    expect(homeLink).toHaveStyle({ color: '#ec4899' });
 
     const expLink = screen.getByRole("link", { name: /experience/i });
-    expect(expLink.className).toContain("text-blue-300");
+    expect(expLink).toHaveStyle({ color: '#374151' });
   });
 });

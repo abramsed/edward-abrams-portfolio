@@ -62,7 +62,7 @@ tailwind.config.ts              # Tailwind theme configuration`
   {
     title: "Tailwind CSS",
     content:
-      "The color palette is inspired by hues from the bio photo. Prefixes are used to set breakpoints that respond to window dimensions.",
+      "The styles are inspired by the bio photo, sci-fi movies, and album artwork. Prefixes are used to set breakpoints that respond to window dimensions."
   },
   {
     title: "Drizzle ORM",
@@ -78,48 +78,56 @@ tailwind.config.ts              # Tailwind theme configuration`
 
 export default function AboutPage() {
   return (
-    <div className="mx-auto max-w-3xl overflow-hidden px-6 py-6 sm:py-12">
-      <h1 className="text-4xl font-bold tracking-tight text-white">
-        Behind the Code
-      </h1>
-      <p className="mt-2 text-blue-200">
-        Edward is a musician, pro wrestling fanatic, and horror movie enthusiast.
-        He spends his days to the fullest with his soon-to-be wife, Kori, along with
-        their two dogs and cat in the Metro Detroit area. You can catch him at hardcore
-        shows, wrestling events, or playing games with his friends.
-      </p>
-      <ProfileImage />
-      <section className="mt-8 border-t border-blue-800 pt-6 sm:mt-10 sm:pt-10">
-      <h2 className="text-4xl font-bold tracking-tight text-white">
-        How This Site Is Crafted
-      </h2>
-      <p className="mt-2 text-blue-200">
-        Would you care for some computer alchemy?
-      </p>
+    <div className="mx-auto max-w-3xl px-6 py-4 sm:py-8">
 
-      <div className="mt-6 space-y-6 sm:mt-12 sm:space-y-12">
+      {/* Bio card */}
+      <div className="overflow-hidden rounded-xl border border-gray-200 p-6 shadow-sm sm:p-10" style={{ backgroundColor: 'rgba(252,251,248,0.92)' }}>
+        <h1 className="text-4xl font-bold tracking-tight text-gray-900">
+          Behind the Code
+        </h1>
+        <p className="mt-2 text-gray-700">
+          Edward is a musician, pro wrestling fanatic, and horror movie enthusiast.
+          He spends his days to the fullest with his soon-to-be wife, Kori, along with
+          their two dogs and cat in the Metro Detroit area. You can catch him at hardcore
+          shows, wrestling events, or playing games with his friends.
+        </p>
+        <ProfileImage />
+      </div>
+
+      {/* Site architecture intro card */}
+      <div className="mt-4 rounded-xl border border-gray-200 p-6 shadow-sm sm:mt-6 sm:p-10" style={{ backgroundColor: 'rgba(252,251,248,0.92)' }}>
+        <h2 className="text-4xl font-bold tracking-tight text-gray-900">
+          How This Site Is Crafted
+        </h2>
+        <p className="mt-2 text-gray-700">
+          Would you care for some computer alchemy?
+        </p>
+      </div>
+
+      {/* Individual architecture section cards */}
+      <div className="mt-4 space-y-4 sm:mt-6">
         {sections.map((s) => (
-          <section key={s.title}>
-            <h2 className="text-xl font-bold text-white">{s.title}</h2>
+          <section key={s.title} className="rounded-xl border border-gray-200 p-6 shadow-sm" style={{ backgroundColor: 'rgba(252,251,248,0.92)' }}>
+            <h2 className="text-xl font-bold text-gray-900">{s.title}</h2>
             {s.content && (
-              <p className="mt-3 leading-relaxed text-blue-200">
+              <p className="mt-3 leading-relaxed text-gray-700">
                 {s.content}
               </p>
             )}
             {s.treeCompact && (
-              <pre className="mt-4 rounded-lg border border-blue-800 bg-blue-950 p-4 text-xs text-rose-300 sm:hidden">
+              <pre className="mt-4 rounded-lg border border-gray-300 bg-gray-200 p-4 text-xs text-pink-600 sm:hidden">
                 {s.treeCompact}
               </pre>
             )}
             {s.treeFull && (
-              <pre className="mt-4 hidden rounded-lg border border-blue-800 bg-blue-950 p-4 text-sm text-rose-300 sm:block">
+              <pre className="mt-4 hidden rounded-lg border border-gray-300 bg-gray-200 p-4 text-sm text-pink-600 sm:block">
                 {s.treeFull}
               </pre>
             )}
           </section>
         ))}
       </div>
-      </section>
+
     </div>
   );
 }

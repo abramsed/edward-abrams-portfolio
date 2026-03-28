@@ -13,33 +13,39 @@ export default async function SkillsPage() {
     getSkillHighlights(),
   ]);
   return (
-    <div className="mx-auto max-w-4xl px-6 py-6 sm:py-12">
-      <h1 className="text-4xl font-bold tracking-tight text-white">Skills</h1>
-      <p className="mt-2 text-blue-200">
-        A breakdown of languages, frameworks, and platforms I work with.
-      </p>
+    <div className="mx-auto max-w-4xl px-6 py-4 sm:py-8">
 
-      <div className="mt-6 grid gap-6 sm:mt-8 sm:grid-cols-2">
-        {skillCategories.map((cat) => (
-          <SkillCard key={cat.label} {...cat} />
+      {/* Header card */}
+      <div className="rounded-xl border border-gray-200 p-6 shadow-sm" style={{ backgroundColor: 'rgba(252,251,248,0.92)' }}>
+        <h1 className="text-4xl font-bold tracking-tight text-gray-900">Skills</h1>
+        <p className="mt-2 text-gray-700">
+          A breakdown of languages, frameworks, and platforms I work with.
+        </p>
+      </div>
+
+      {/* Skill category cards */}
+      <div className="mt-4 grid gap-4 sm:mt-6 sm:grid-cols-2">
+        {skillCategories.map((cat, i) => (
+          <SkillCard key={cat.label} {...cat} index={i} />
         ))}
       </div>
 
-      {/* Highlights */}
-      <section className="mt-8 border-t border-blue-800 pt-6 sm:mt-10 sm:pt-10">
-        <h2 className="text-2xl font-bold text-white">Highlights</h2>
+      {/* Highlights card */}
+      <section className="mt-4 rounded-xl border border-gray-200 p-6 shadow-sm sm:mt-6" style={{ backgroundColor: 'rgba(252,251,248,0.92)' }}>
+        <h2 className="text-2xl font-bold text-gray-900">Highlights</h2>
         <ul className="mt-6 space-y-4">
           {highlights.map((h) => (
             <li key={h.label} className="flex items-start gap-3">
-              <span className="mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-rose-400" />
+              <span className="mt-1.5 h-2 w-2 flex-shrink-0 rounded-full" style={{ backgroundColor: "#facc15" }} />
               <div>
-                <span className="font-semibold text-white">{h.label}:</span>{" "}
-                <span className="text-blue-200">{h.description}</span>
+                <span className="font-semibold text-gray-900">{h.label}:</span>{" "}
+                <span className="text-gray-700">{h.description}</span>
               </div>
             </li>
           ))}
         </ul>
       </section>
+
     </div>
   );
 }
