@@ -2,11 +2,12 @@ import { PersonalInfo } from "@/lib/queries";
 import HexagonIcon from "./HexagonIcon";
 import YellowButton from "./YellowButton";
 import GreenButton from "./GreenButton";
+import HeroButtonGroup from "./HeroButtonGroup";
 
 export default function Hero({ info }: { info: PersonalInfo }) {
   return (
-    <section className="flex flex-1 flex-col items-center justify-center text-center px-6 py-10">
-      <div className="w-full max-w-2xl rounded-xl border border-gray-200 shadow-sm" style={{ backgroundColor: 'rgba(252,251,248,0.92)', paddingTop: '2rem', paddingBottom: '2rem', paddingLeft: '1rem', paddingRight: '1rem' }}>
+    <section className="flex flex-1 flex-col items-center justify-center text-center px-6 py-2">
+      <div className="w-full max-w-2xl rounded-xl border border-gray-200 shadow-sm" style={{ backgroundColor: 'rgba(252,251,248,0.92)', paddingTop: '1.25rem', paddingBottom: '1.25rem', paddingLeft: '1rem', paddingRight: '1rem' }}>
       <p className="mb-3 text-sm font-medium uppercase tracking-widest text-pink-600">
         {info.title}
       </p>
@@ -23,14 +24,14 @@ export default function Hero({ info }: { info: PersonalInfo }) {
           info.name
         )}
       </h1>
-      <p className="mt-6 max-w-2xl text-lg leading-relaxed text-gray-700">
+      <p className="mt-3 max-w-2xl text-lg leading-relaxed text-gray-700">
         {info.summary}
       </p>
 
-      <div style={{ display: 'flex', flexWrap: 'nowrap', justifyContent: 'center', gap: '0.5rem', marginTop: '2.5rem' }}>
+      <HeroButtonGroup>
         <YellowButton href="/experience">View Experience</YellowButton>
         <GreenButton href="/skills">View Skills</GreenButton>
-      </div>
+      </HeroButtonGroup>
 
       </div>
     </section>
