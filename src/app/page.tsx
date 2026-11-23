@@ -12,10 +12,6 @@ export default async function Home() {
     url: "https://tedbramsy.com",
     email: `mailto:${info.email}`,
     sameAs: [info.linkedin],
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: info.location,
-    },
     knowsAbout: [
       "React",
       "Next.js",

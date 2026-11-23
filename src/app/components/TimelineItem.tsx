@@ -3,6 +3,7 @@ import HexagonIcon from "./HexagonIcon";
 
 export default function TimelineItem({
   title,
+  company,
   period,
   bullets,
 }: Experience) {
@@ -13,6 +14,7 @@ export default function TimelineItem({
         <p className="text-sm font-medium text-gray-700">{period}</p>
       </div>
       <h3 className="mt-2 text-xl font-bold text-gray-900">{title}</h3>
+      <p className="text-sm font-semibold text-gray-600">{company}</p>
 
       <ul className="mt-4 space-y-2">
         {bullets.map((b, i) => (

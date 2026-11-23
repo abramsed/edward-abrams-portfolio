@@ -31,6 +31,7 @@ vi.mock("@/lib/queries", () => ({
   getExperiences: vi.fn().mockResolvedValue([
     {
       title: "Senior Developer",
+      company: "Acme Health",
       period: "2023 – Present",
       bullets: ["Built microservices", "Reduced latency by 40%"],
     },
@@ -83,6 +84,7 @@ describe("Experience page", () => {
     render(await ExperiencePage());
     expect(screen.getByText("Work Experience")).toBeInTheDocument();
     expect(screen.getByText("Senior Developer")).toBeInTheDocument();
+    expect(screen.getByText("Acme Health")).toBeInTheDocument();
     expect(screen.getByText("2023 – Present")).toBeInTheDocument();
   });
 

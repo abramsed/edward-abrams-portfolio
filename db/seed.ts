@@ -59,7 +59,7 @@ async function seed() {
       email: "eabrams@tedbramsy.com",
       linkedin: "https://www.linkedin.com/in/tedbramsy",
       summary:
-        "Accomplished full stack engineer with 6+ years of continuous growth and leadership in software development. Designs scalable, performant web applications with intuitive, reliable user experiences.",
+        "Accomplished full stack engineer with 7+ years of continuous growth and leadership in software development. Designs scalable, performant web applications with intuitive, reliable user experiences.",
     });
     console.log("  ✓ personal_info");
   } else {
@@ -70,18 +70,23 @@ async function seed() {
   const existingExperiences = await db.select().from(experiences).limit(1);
   if (existingExperiences.length === 0) {
     await db.insert(experiences).values([
-      { title: "Software Developer III", period: "July 2024 – Present", sortOrder: 1 },
-      { title: "Team Leader, Product Development", period: "June 2023 – July 2024", sortOrder: 2 },
-      { title: "Software Developer II", period: "Sept 2021 – June 2023", sortOrder: 3 },
-      { title: "Trainee → Software Developer I", period: "Sept 2019 – Sept 2021", sortOrder: 4 },
+      { title: "Senior Software Developer", company: "Medical Solutions", period: "May 2026 – Present", sortOrder: 1 },
+      { title: "Software Developer III", company: "United Wholesale Mortgage", period: "July 2024 – May 2026", sortOrder: 2 },
+      { title: "Team Leader, Product Development", company: "United Wholesale Mortgage", period: "June 2023 – July 2024", sortOrder: 3 },
+      { title: "Software Developer II", company: "United Wholesale Mortgage", period: "Sept 2021 – June 2023", sortOrder: 4 },
+      { title: "Trainee → Software Developer I", company: "United Wholesale Mortgage", period: "Sept 2019 – Sept 2021", sortOrder: 5 },
     ]);
     console.log("  ✓ experiences");
 
     // experience_bullets (depends on experiences being inserted first)
     const inserted = await db.select().from(experiences).orderBy(experiences.sortOrder);
-    const [e1, e2, e3, e4] = inserted.map((e) => e.id);
+    const [e0, e1, e2, e3, e4] = inserted.map((e) => e.id);
 
     await db.insert(experienceBullets).values([
+      { experienceId: e0, bullet: "Owner of core event-driven .NET microservices for a platform connecting hospitals to traveling nurses, publishing job, assignment, and shift requests via Azure Service Bus to notify downstream systems", sortOrder: 1 },
+      { experienceId: e0, bullet: "Ported legacy PowerBI integrations to a new service using validation attributes to populate report views based on permissions and created a reusable component for administrators to manage visibility independently", sortOrder: 2 },
+      { experienceId: e0, bullet: "Designed a data auditing event flow with an extensible schema for future developers to contribute new types through EF Core migrations that enable new actions to be persisted to the enterprise data lake", sortOrder: 3 },
+      { experienceId: e0, bullet: "Mentored teammates on querying Azure App Insights logs and improved observability dashboards", sortOrder: 4 },
       { experienceId: e1, bullet: "Frontend development lead for a CRM and content creation platform built with React and Next.js", sortOrder: 1 },
       { experienceId: e1, bullet: "Established SAML and OAuth connectivity for the Canva API, leveraging PKCE flow with SHA-256 encoding and verification", sortOrder: 2 },
       { experienceId: e1, bullet: "Scoped contexts for persistent state management within defined boundaries to reduce network traffic and optimize memory consumption", sortOrder: 3 },
@@ -92,7 +97,7 @@ async function seed() {
       { experienceId: e3, bullet: "Migrated a terabyte of SQL Server data to Azure Cosmos DB, alleviating costs of on-premises servers", sortOrder: 2 },
       { experienceId: e3, bullet: "Developed eventually consistent data replication pipelines with Apache Spark to maintain legacy reports", sortOrder: 3 },
       { experienceId: e4, bullet: "Earned MVP recognition during the developer training program for peer mentorship and technical merit", sortOrder: 1 },
-      { experienceId: e4, bullet: "Delivered regulatory compliance updates ahead of competitors using a stangler pattern to route loans based on submission date", sortOrder: 2 },
+      { experienceId: e4, bullet: "Delivered regulatory compliance updates ahead of competitors using a strangler pattern to route loans based on submission date", sortOrder: 2 },
       { experienceId: e4, bullet: "Led development of RESTful income calculation APIs, eliminating manual underwriting processes performed in Excel macros", sortOrder: 3 },
     ]);
     console.log("  ✓ experience_bullets");
@@ -121,7 +126,7 @@ async function seed() {
       { categoryId: fw, item: ".NET" },
       { categoryId: fw, item: "React" },
       { categoryId: fw, item: "Next.js" },
-      { categoryId: fw, item: "Svelte" },
+      { categoryId: fw, item: "Node.js" },
       { categoryId: tools, item: "Azure" },
       { categoryId: tools, item: "GCP" },
       { categoryId: tools, item: "MongoDB" },
@@ -140,6 +145,7 @@ async function seed() {
   const existingHighlights = await db.select().from(skillHighlights).limit(1);
   if (existingHighlights.length === 0) {
     await db.insert(skillHighlights).values([
+      { label: "Event-Driven Microservices", description: "Owner of core event-driven .NET microservices connecting hospitals to traveling nurses, publishing job, assignment, and shift requests via Azure Service Bus to notify downstream systems.", sortOrder: 0 },
       { label: "Cloud-Native Data", description: "Migrated a terabyte of SQL Server data to Azure Cosmos DB and built eventually consistent replication pipelines with Apache Spark.", sortOrder: 1 },
       { label: "API Security & Identity", description: "Established SAML and OAuth connectivity for the Canva API, leveraging PKCE flow with SHA-256 encoding and verification.", sortOrder: 2 },
       { label: "React / Next.js", description: "Frontend development lead for a CRM platform using React and Next.js; combined server-side fetching with scoped client contexts and caching to reduce network traffic and optimize memory.", sortOrder: 3 },

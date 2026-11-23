@@ -40,7 +40,6 @@ export const metadata: Metadata = {
     "cloud-native",
     "API design",
     "portfolio",
-    "Metro Detroit",
   ],
   authors: [{ name: "Edward D. Abrams" }],
   creator: "Edward D. Abrams",

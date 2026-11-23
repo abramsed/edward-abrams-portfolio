@@ -3,7 +3,7 @@ import ProfileImage from "../components/ProfileImage";
 export const metadata = {
   title: "About",
   description:
-    "About Edward D. Abrams — Full Stack Developer based in Metro Detroit specializing in React, Next.js, .NET, and cloud-native development.",
+    "About Edward D. Abrams — Full Stack Developer specializing in React, Next.js, .NET, and cloud-native development.",
 };
 
 const sections = [
@@ -87,9 +87,9 @@ export default function AboutPage() {
         </h1>
         <p className="mt-2 text-gray-700">
           Edward is a musician, pro wrestling fanatic, and horror movie enthusiast.
-          He spends his days to the fullest with his soon-to-be wife, Kori, along with
-          their two dogs and cat in the Metro Detroit area. You can catch him at hardcore
-          shows, wrestling events, or playing games with his friends.
+          He spends his days to the fullest with his wife, Kori, along with
+          their cat and three dogs. You can catch him at hardcore
+          shows, wrestling events, or playing games with his friends and family.
         </p>
         <ProfileImage />
       </div>

@@ -78,6 +78,7 @@ const personalInfo = {
 
 const experience = {
   title: "Senior Developer",
+  company: "Acme Health",
   period: "2022 – Present",
   bullets: ["Led migration to microservices", "Reduced latency by 40%"],
 };
@@ -141,9 +142,10 @@ describe("SkillCard", () => {
 
 // ---- TimelineItem ----
 describe("TimelineItem", () => {
-  it("renders title and period", () => {
+  it("renders title, company and period", () => {
     render(<TimelineItem {...experience} />);
     expect(screen.getByText("Senior Developer")).toBeInTheDocument();
+    expect(screen.getByText("Acme Health")).toBeInTheDocument();
     expect(screen.getByText("2022 – Present")).toBeInTheDocument();
   });
 
