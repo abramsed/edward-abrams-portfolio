@@ -6,7 +6,7 @@ import HeroButtonGroup from "./HeroButtonGroup";
 
 export default function Hero({ info }: { info: PersonalInfo }) {
   return (
-    <section className="flex flex-1 flex-col items-center justify-center text-center px-6 py-2">
+    <section className="flex flex-1 flex-col items-center justify-start text-center px-6 py-4 sm:justify-center sm:py-2">
       <style>{`
         .hero-heading { font-size: 2.25rem; line-height: 1.1; }
         .hero-summary { font-size: 1rem; line-height: 1.6; }
