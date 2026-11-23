@@ -73,7 +73,7 @@ export default function RootLayout({
     <html lang="en">
       <body
 className={`${righteous.variable} ${spaceGrotesk.variable} antialiased text-gray-900 min-h-screen flex flex-col`}
-        style={{ backgroundColor: '#fcfbf8' }}
+        style={{ backgroundColor: '#fcfbf8', minHeight: '100dvh' }}
       >
         <BackgroundLines />
         <Navbar />
